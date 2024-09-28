@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4ae2b8e6992b4bdab8aa6663125c723e" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.AgeCategories_ToyStore" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Agent" Width="1.5" PointX="17" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AgentPriorityHistory" Width="1.5" PointX="19.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AgentType" Width="1.5" PointX="14.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Categories_ToyStore" Width="1.5" PointX="7.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Categorys" Width="1.5" PointX="9.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Cities_Cursach" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Classes" Width="1.5" PointX="9.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Countries_ToyStore" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Customers_Cursach" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Deals" Width="1.5" PointX="14.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Departments_Cursach" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Directories_ToyStore" Width="1.5" PointX="10" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Edenices" Width="1.5" PointX="9.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Employees_Cursach" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Genders_Cursach" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Givers" Width="1.5" PointX="9.75" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Group_roles_Cursach" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Groups_Cursach" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Main" Width="1.5" PointX="12" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Makers" Width="1.5" PointX="9.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Manufacturers_ToyStore" Width="1.5" PointX="7.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Material" Width="1.5" PointX="17" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MaterialCountHistory" Width="1.5" PointX="19.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MaterialType" Width="1.5" PointX="14.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Names" Width="1.5" PointX="9.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Offices_Cursach" Width="1.5" PointX="1.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Orders_ToyStore" Width="1.5" PointX="12.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="17" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductCostHistory" Width="1.5" PointX="19.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductMaterial" Width="1.5" PointX="19.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductSale" Width="1.5" PointX="19.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductType" Width="1.5" PointX="14.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Projects_Cursach" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Providers_ToyStore" Width="1.5" PointX="7.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Roles_ToyStore" Width="1.5" PointX="5.5" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Shop" Width="1.5" PointX="19.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Specifications_Cursach" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Status_ToyStore" Width="1.5" PointX="7.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Statuses_Cursach" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Supplier" Width="1.5" PointX="19.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Toys_ToyStore" Width="1.5" PointX="10" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User_role_Cursach" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="12" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users_Cursach" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users_ToyStore" Width="1.5" PointX="7.75" PointY="21.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Toys_AgeCategories_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Agent_AgentType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_AgentPriorityHistory_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductSale_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Shop_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Toys_Categories_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Main_Categorys" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Customers_Cursach_Cities_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employees_Cursach_Cities_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Users_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Toys_Countries_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Projects_Cursach_Customers_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Deals_Main" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Deals_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Departments_Cursach_Offices_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employees_Cursach_Departments_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Directories_ToyStore_Status_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Directories_Users_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Orders_ToyStore_Directories_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Main_Edenices" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employees_Cursach_Genders_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employees_Cursach_Group_roles_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employees_Cursach_Specifications_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Groups_Cursach_Employees_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Users_Cursach_Employees_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Main_Givers" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Groups_Cursach_Projects_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Main_Makers" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Main_Names" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Toys_Manufacturers_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Material_MaterialType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_MaterialCountHistory_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductMaterial_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Orders_Toys_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductCostHistory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductMaterial_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_ProductSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Projects_Cursach_Statuses_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Projects_Cursach_Users_Cursach1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Toys_Providers_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Users_Roles_ToyStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Users_Cursach_User_role_Cursach" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MaterialSupplier" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

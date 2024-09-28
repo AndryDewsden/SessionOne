@@ -1,0 +1,2997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AgeCategories_ToyStore">
+          <Key>
+            <PropertyRef Name="id_ageCategory" />
+          </Key>
+          <Property Name="id_ageCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ageCategory_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="AgentTypeID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="INN" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="KPP" Type="varchar" MaxLength="9" />
+          <Property Name="DirectorName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgentPriorityHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentID" Type="int" Nullable="false" />
+          <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="PriorityValue" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Categories_ToyStore">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities_Cursach">
+          <Key>
+            <PropertyRef Name="id_city" />
+          </Key>
+          <Property Name="id_city" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Classes">
+          <Key>
+            <PropertyRef Name="id_user_class" />
+          </Key>
+          <Property Name="id_user_class" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="class" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries_ToyStore">
+          <Key>
+            <PropertyRef Name="id_country" />
+          </Key>
+          <Property Name="id_country" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers_Cursach">
+          <Key>
+            <PropertyRef Name="id_customer" />
+          </Key>
+          <Property Name="id_customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="customer_id_city" Type="int" Nullable="false" />
+          <Property Name="customer_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deals">
+          <Key>
+            <PropertyRef Name="id_deal" />
+          </Key>
+          <Property Name="id_deal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="good_id" Type="int" Nullable="false" />
+          <Property Name="good_count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departments_Cursach">
+          <Key>
+            <PropertyRef Name="id_department" />
+          </Key>
+          <Property Name="id_department" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="department_id_office" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Directories_ToyStore">
+          <Key>
+            <PropertyRef Name="id_directory" />
+          </Key>
+          <Property Name="id_directory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="directory_id_user" Type="int" Nullable="false" />
+          <Property Name="directory_order_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="directory_status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Edenices">
+          <Key>
+            <PropertyRef Name="id_edenic" />
+          </Key>
+          <Property Name="id_edenic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="edenic_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees_Cursach">
+          <Key>
+            <PropertyRef Name="id_employee" />
+          </Key>
+          <Property Name="id_employee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="employee_age" Type="int" Nullable="false" />
+          <Property Name="employee_id_specification" Type="int" Nullable="false" />
+          <Property Name="employee_id_city" Type="int" Nullable="false" />
+          <Property Name="employee_image" Type="nvarchar" MaxLength="50" />
+          <Property Name="employee_id_gender" Type="int" Nullable="false" />
+          <Property Name="employee_id_department" Type="int" Nullable="false" />
+          <Property Name="employee_personal_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="employee_role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genders_Cursach">
+          <Key>
+            <PropertyRef Name="id_gender" />
+          </Key>
+          <Property Name="id_gender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gender_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Givers">
+          <Key>
+            <PropertyRef Name="id_giver" />
+          </Key>
+          <Property Name="id_giver" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="giver_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group_roles_Cursach">
+          <Key>
+            <PropertyRef Name="id_role_group" />
+          </Key>
+          <Property Name="id_role_group" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_group" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups_Cursach">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="id_group" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_id_employee" Type="int" Nullable="false" />
+          <Property Name="group_id_role" Type="int" Nullable="false" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Main">
+          <Key>
+            <PropertyRef Name="id_main" />
+          </Key>
+          <Property Name="id_main" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="article" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_id" Type="int" Nullable="false" />
+          <Property Name="edenic_id" Type="int" Nullable="false" />
+          <Property Name="prize" Type="int" Nullable="false" />
+          <Property Name="maxSkid" Type="int" Nullable="false" />
+          <Property Name="maker_id" Type="int" Nullable="false" />
+          <Property Name="giver_id" Type="int" Nullable="false" />
+          <Property Name="category_id" Type="int" Nullable="false" />
+          <Property Name="actSkid" Type="int" Nullable="false" />
+          <Property Name="kolOnSklad" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Makers">
+          <Key>
+            <PropertyRef Name="id_maker" />
+          </Key>
+          <Property Name="id_maker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="maker_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manufacturers_ToyStore">
+          <Key>
+            <PropertyRef Name="id_manufacturer" />
+          </Key>
+          <Property Name="id_manufacturer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manufacturer_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CountInPack" Type="int" Nullable="false" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CountInStock" Type="float" />
+          <Property Name="MinCount" Type="float" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaterialTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialCountHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialID" Type="int" Nullable="false" />
+          <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="CountValue" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialSupplier">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="MaterialID" Type="int" Nullable="false" />
+          <Property Name="SupplierID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DefectedPercent" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Names">
+          <Key>
+            <PropertyRef Name="id_name" />
+          </Key>
+          <Property Name="id_name" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Offices_Cursach">
+          <Key>
+            <PropertyRef Name="id_building" />
+          </Key>
+          <Property Name="id_building" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="office_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="office_address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders_ToyStore">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_id_directory" Type="int" Nullable="false" />
+          <Property Name="order_id_toy" Type="int" Nullable="false" />
+          <Property Name="order_quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProductTypeID" Type="int" />
+          <Property Name="ArticleNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductionPersonCount" Type="int" />
+          <Property Name="ProductionWorkshopNumber" Type="int" />
+          <Property Name="MinCostForAgent" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCostHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="CostValue" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductMaterial">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="MaterialID" Type="int" Nullable="false" />
+          <Property Name="Count" Type="float" />
+        </EntityType>
+        <EntityType Name="ProductSale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgentID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="SaleDate" Type="date" Nullable="false" />
+          <Property Name="ProductCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DefectedPercent" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects_Cursach">
+          <Key>
+            <PropertyRef Name="id_project" />
+          </Key>
+          <Property Name="id_project" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="project_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="project_status" Type="int" Nullable="false" />
+          <Property Name="customer_id" Type="int" Nullable="false" />
+          <Property Name="user_creator_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Providers_ToyStore">
+          <Key>
+            <PropertyRef Name="id_provider" />
+          </Key>
+          <Property Name="id_provider" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="provider_name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles_ToyStore">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="AgentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specifications_Cursach">
+          <Key>
+            <PropertyRef Name="id_specification" />
+          </Key>
+          <Property Name="id_specification" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="specification_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status_ToyStore">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statuses_Cursach">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="project_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="INN" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="QualityRating" Type="int" />
+          <Property Name="SupplierType" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Toys_ToyStore">
+          <Key>
+            <PropertyRef Name="id_toy" />
+          </Key>
+          <Property Name="id_toy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="toy_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="toy_id_category" Type="int" Nullable="false" />
+          <Property Name="toy_id_country" Type="int" Nullable="false" />
+          <Property Name="toy_id_manufacturer" Type="int" Nullable="false" />
+          <Property Name="toy_id_provider" Type="int" Nullable="false" />
+          <Property Name="toy_wholesalePrice" Type="int" Nullable="false" />
+          <Property Name="toy_retailPrice" Type="int" Nullable="false" />
+          <Property Name="toy_id_ageCategory" Type="int" Nullable="false" />
+          <Property Name="toy_discription" Type="nvarchar(max)" />
+          <Property Name="toy_image" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User_role_Cursach">
+          <Key>
+            <PropertyRef Name="id_user_role" />
+          </Key>
+          <Property Name="id_user_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_class_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users_Cursach">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_id_role" Type="int" Nullable="false" />
+          <Property Name="employee_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users_ToyStore">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_login" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="user_password" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="user_id_role" Type="int" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="user_phone" Type="nchar" MaxLength="17" />
+          <Property Name="user_mail" Type="nchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_Agent_AgentType">
+          <End Role="AgentType" Type="Self.AgentType" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="AgentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AgentPriorityHistory_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="AgentPriorityHistory" Type="Self.AgentPriorityHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AgentPriorityHistory">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_Cursach_Cities_Cursach">
+          <End Role="Cities_Cursach" Type="Self.Cities_Cursach" Multiplicity="1" />
+          <End Role="Customers_Cursach" Type="Self.Customers_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities_Cursach">
+              <PropertyRef Name="id_city" />
+            </Principal>
+            <Dependent Role="Customers_Cursach">
+              <PropertyRef Name="customer_id_city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deals_Main">
+          <End Role="Main" Type="Self.Main" Multiplicity="1" />
+          <End Role="Deals" Type="Self.Deals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Main">
+              <PropertyRef Name="id_main" />
+            </Principal>
+            <Dependent Role="Deals">
+              <PropertyRef Name="good_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deals_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Deals" Type="Self.Deals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Deals">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departments_Cursach_Offices_Cursach">
+          <End Role="Offices_Cursach" Type="Self.Offices_Cursach" Multiplicity="1" />
+          <End Role="Departments_Cursach" Type="Self.Departments_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offices_Cursach">
+              <PropertyRef Name="id_building" />
+            </Principal>
+            <Dependent Role="Departments_Cursach">
+              <PropertyRef Name="department_id_office" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Directories_ToyStore_Status_ToyStore">
+          <End Role="Status_ToyStore" Type="Self.Status_ToyStore" Multiplicity="1" />
+          <End Role="Directories_ToyStore" Type="Self.Directories_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_ToyStore">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Directories_ToyStore">
+              <PropertyRef Name="directory_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Directories_Users_ToyStore">
+          <End Role="Users_ToyStore" Type="Self.Users_ToyStore" Multiplicity="1" />
+          <End Role="Directories_ToyStore" Type="Self.Directories_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_ToyStore">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Directories_ToyStore">
+              <PropertyRef Name="directory_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Cities_Cursach">
+          <End Role="Cities_Cursach" Type="Self.Cities_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities_Cursach">
+              <PropertyRef Name="id_city" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Departments_Cursach">
+          <End Role="Departments_Cursach" Type="Self.Departments_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments_Cursach">
+              <PropertyRef Name="id_department" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Genders_Cursach">
+          <End Role="Genders_Cursach" Type="Self.Genders_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders_Cursach">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Group_roles_Cursach">
+          <End Role="Group_roles_Cursach" Type="Self.Group_roles_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group_roles_Cursach">
+              <PropertyRef Name="id_role_group" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Specifications_Cursach">
+          <End Role="Specifications_Cursach" Type="Self.Specifications_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specifications_Cursach">
+              <PropertyRef Name="id_specification" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_specification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Cursach_Employees_Cursach">
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="1" />
+          <End Role="Groups_Cursach" Type="Self.Groups_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees_Cursach">
+              <PropertyRef Name="id_employee" />
+            </Principal>
+            <Dependent Role="Groups_Cursach">
+              <PropertyRef Name="group_id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Cursach_Projects_Cursach">
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="1" />
+          <End Role="Groups_Cursach" Type="Self.Groups_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects_Cursach">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="Groups_Cursach">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Categorys">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Edenices">
+          <End Role="Edenices" Type="Self.Edenices" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Edenices">
+              <PropertyRef Name="id_edenic" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="edenic_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Givers">
+          <End Role="Givers" Type="Self.Givers" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Givers">
+              <PropertyRef Name="id_giver" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="giver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Makers">
+          <End Role="Makers" Type="Self.Makers" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Makers">
+              <PropertyRef Name="id_maker" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="maker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Names">
+          <End Role="Names" Type="Self.Names" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Names">
+              <PropertyRef Name="id_name" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="name_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_MaterialType">
+          <End Role="MaterialType" Type="Self.MaterialType" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="MaterialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialCountHistory_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="MaterialCountHistory" Type="Self.MaterialCountHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaterialCountHistory">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialSupplier_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="MaterialSupplier" Type="Self.MaterialSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaterialSupplier">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialSupplier_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="MaterialSupplier" Type="Self.MaterialSupplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaterialSupplier">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Toys_ToyStore">
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="1" />
+          <End Role="Orders_ToyStore" Type="Self.Orders_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Toys_ToyStore">
+              <PropertyRef Name="id_toy" />
+            </Principal>
+            <Dependent Role="Orders_ToyStore">
+              <PropertyRef Name="order_id_toy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_ToyStore_Directories_ToyStore">
+          <End Role="Directories_ToyStore" Type="Self.Directories_ToyStore" Multiplicity="1" />
+          <End Role="Orders_ToyStore" Type="Self.Orders_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directories_ToyStore">
+              <PropertyRef Name="id_directory" />
+            </Principal>
+            <Dependent Role="Orders_ToyStore">
+              <PropertyRef Name="order_id_directory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCostHistory_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductCostHistory" Type="Self.ProductCostHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductCostHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductMaterial_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="ProductMaterial" Type="Self.ProductMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductMaterial">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductMaterial_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductMaterial" Type="Self.ProductMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductMaterial">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cursach_Customers_Cursach">
+          <End Role="Customers_Cursach" Type="Self.Customers_Cursach" Multiplicity="1" />
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers_Cursach">
+              <PropertyRef Name="id_customer" />
+            </Principal>
+            <Dependent Role="Projects_Cursach">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cursach_Statuses_Cursach">
+          <End Role="Statuses_Cursach" Type="Self.Statuses_Cursach" Multiplicity="1" />
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses_Cursach">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Projects_Cursach">
+              <PropertyRef Name="project_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cursach_Users_Cursach1">
+          <End Role="Users_Cursach" Type="Self.Users_Cursach" Multiplicity="1" />
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_Cursach">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Projects_Cursach">
+              <PropertyRef Name="user_creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_AgeCategories_ToyStore">
+          <End Role="AgeCategories_ToyStore" Type="Self.AgeCategories_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeCategories_ToyStore">
+              <PropertyRef Name="id_ageCategory" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_ageCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Categories_ToyStore">
+          <End Role="Categories_ToyStore" Type="Self.Categories_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories_ToyStore">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Countries_ToyStore">
+          <End Role="Countries_ToyStore" Type="Self.Countries_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries_ToyStore">
+              <PropertyRef Name="id_country" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Manufacturers_ToyStore">
+          <End Role="Manufacturers_ToyStore" Type="Self.Manufacturers_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers_ToyStore">
+              <PropertyRef Name="id_manufacturer" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_manufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Providers_ToyStore">
+          <End Role="Providers_ToyStore" Type="Self.Providers_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Providers_ToyStore">
+              <PropertyRef Name="id_provider" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_provider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Classes">
+          <End Role="Classes" Type="Self.Classes" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classes">
+              <PropertyRef Name="id_user_class" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="user_class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cursach_Employees_Cursach">
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="1" />
+          <End Role="Users_Cursach" Type="Self.Users_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees_Cursach">
+              <PropertyRef Name="id_employee" />
+            </Principal>
+            <Dependent Role="Users_Cursach">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cursach_User_role_Cursach">
+          <End Role="User_role_Cursach" Type="Self.User_role_Cursach" Multiplicity="1" />
+          <End Role="Users_Cursach" Type="Self.Users_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_role_Cursach">
+              <PropertyRef Name="id_user_role" />
+            </Principal>
+            <Dependent Role="Users_Cursach">
+              <PropertyRef Name="user_id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles_ToyStore">
+          <End Role="Roles_ToyStore" Type="Self.Roles_ToyStore" Multiplicity="1" />
+          <End Role="Users_ToyStore" Type="Self.Users_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles_ToyStore">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="Users_ToyStore">
+              <PropertyRef Name="user_id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="AgeCategories_ToyStore" EntityType="Self.AgeCategories_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentPriorityHistory" EntityType="Self.AgentPriorityHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentType" EntityType="Self.AgentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories_ToyStore" EntityType="Self.Categories_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities_Cursach" EntityType="Self.Cities_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries_ToyStore" EntityType="Self.Countries_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers_Cursach" EntityType="Self.Customers_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deals" EntityType="Self.Deals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departments_Cursach" EntityType="Self.Departments_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Directories_ToyStore" EntityType="Self.Directories_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Edenices" EntityType="Self.Edenices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees_Cursach" EntityType="Self.Employees_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders_Cursach" EntityType="Self.Genders_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Givers" EntityType="Self.Givers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Group_roles_Cursach" EntityType="Self.Group_roles_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups_Cursach" EntityType="Self.Groups_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Main" EntityType="Self.Main" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Makers" EntityType="Self.Makers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturers_ToyStore" EntityType="Self.Manufacturers_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialCountHistory" EntityType="Self.MaterialCountHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialSupplier" EntityType="Self.MaterialSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialType" EntityType="Self.MaterialType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Names" EntityType="Self.Names" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offices_Cursach" EntityType="Self.Offices_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders_ToyStore" EntityType="Self.Orders_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCostHistory" EntityType="Self.ProductCostHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductMaterial" EntityType="Self.ProductMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductSale" EntityType="Self.ProductSale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects_Cursach" EntityType="Self.Projects_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Providers_ToyStore" EntityType="Self.Providers_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles_ToyStore" EntityType="Self.Roles_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specifications_Cursach" EntityType="Self.Specifications_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status_ToyStore" EntityType="Self.Status_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuses_Cursach" EntityType="Self.Statuses_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Toys_ToyStore" EntityType="Self.Toys_ToyStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_role_Cursach" EntityType="Self.User_role_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_Cursach" EntityType="Self.Users_Cursach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_ToyStore" EntityType="Self.Users_ToyStore" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Agent_AgentType" Association="Self.FK_Agent_AgentType">
+            <End Role="AgentType" EntitySet="AgentType" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AgentPriorityHistory_Agent" Association="Self.FK_AgentPriorityHistory_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="AgentPriorityHistory" EntitySet="AgentPriorityHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_Cursach_Cities_Cursach" Association="Self.FK_Customers_Cursach_Cities_Cursach">
+            <End Role="Cities_Cursach" EntitySet="Cities_Cursach" />
+            <End Role="Customers_Cursach" EntitySet="Customers_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deals_Main" Association="Self.FK_Deals_Main">
+            <End Role="Main" EntitySet="Main" />
+            <End Role="Deals" EntitySet="Deals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deals_Users" Association="Self.FK_Deals_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Deals" EntitySet="Deals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departments_Cursach_Offices_Cursach" Association="Self.FK_Departments_Cursach_Offices_Cursach">
+            <End Role="Offices_Cursach" EntitySet="Offices_Cursach" />
+            <End Role="Departments_Cursach" EntitySet="Departments_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Directories_ToyStore_Status_ToyStore" Association="Self.FK_Directories_ToyStore_Status_ToyStore">
+            <End Role="Status_ToyStore" EntitySet="Status_ToyStore" />
+            <End Role="Directories_ToyStore" EntitySet="Directories_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Directories_Users_ToyStore" Association="Self.FK_Directories_Users_ToyStore">
+            <End Role="Users_ToyStore" EntitySet="Users_ToyStore" />
+            <End Role="Directories_ToyStore" EntitySet="Directories_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Cities_Cursach" Association="Self.FK_Employees_Cursach_Cities_Cursach">
+            <End Role="Cities_Cursach" EntitySet="Cities_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Departments_Cursach" Association="Self.FK_Employees_Cursach_Departments_Cursach">
+            <End Role="Departments_Cursach" EntitySet="Departments_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Genders_Cursach" Association="Self.FK_Employees_Cursach_Genders_Cursach">
+            <End Role="Genders_Cursach" EntitySet="Genders_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Group_roles_Cursach" Association="Self.FK_Employees_Cursach_Group_roles_Cursach">
+            <End Role="Group_roles_Cursach" EntitySet="Group_roles_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Specifications_Cursach" Association="Self.FK_Employees_Cursach_Specifications_Cursach">
+            <End Role="Specifications_Cursach" EntitySet="Specifications_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Cursach_Employees_Cursach" Association="Self.FK_Groups_Cursach_Employees_Cursach">
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+            <End Role="Groups_Cursach" EntitySet="Groups_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Cursach_Projects_Cursach" Association="Self.FK_Groups_Cursach_Projects_Cursach">
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+            <End Role="Groups_Cursach" EntitySet="Groups_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Categorys" Association="Self.FK_Main_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Edenices" Association="Self.FK_Main_Edenices">
+            <End Role="Edenices" EntitySet="Edenices" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Givers" Association="Self.FK_Main_Givers">
+            <End Role="Givers" EntitySet="Givers" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Makers" Association="Self.FK_Main_Makers">
+            <End Role="Makers" EntitySet="Makers" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Names" Association="Self.FK_Main_Names">
+            <End Role="Names" EntitySet="Names" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
+            <End Role="MaterialType" EntitySet="MaterialType" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialCountHistory_Material" Association="Self.FK_MaterialCountHistory_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="MaterialCountHistory" EntitySet="MaterialCountHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialSupplier_Material" Association="Self.FK_MaterialSupplier_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="MaterialSupplier" EntitySet="MaterialSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialSupplier_Supplier" Association="Self.FK_MaterialSupplier_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="MaterialSupplier" EntitySet="MaterialSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Toys_ToyStore" Association="Self.FK_Orders_Toys_ToyStore">
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+            <End Role="Orders_ToyStore" EntitySet="Orders_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_ToyStore_Directories_ToyStore" Association="Self.FK_Orders_ToyStore_Directories_ToyStore">
+            <End Role="Directories_ToyStore" EntitySet="Directories_ToyStore" />
+            <End Role="Orders_ToyStore" EntitySet="Orders_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCostHistory_Product" Association="Self.FK_ProductCostHistory_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductCostHistory" EntitySet="ProductCostHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductMaterial_Material" Association="Self.FK_ProductMaterial_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="ProductMaterial" EntitySet="ProductMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductMaterial_Product" Association="Self.FK_ProductMaterial_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductMaterial" EntitySet="ProductMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cursach_Customers_Cursach" Association="Self.FK_Projects_Cursach_Customers_Cursach">
+            <End Role="Customers_Cursach" EntitySet="Customers_Cursach" />
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cursach_Statuses_Cursach" Association="Self.FK_Projects_Cursach_Statuses_Cursach">
+            <End Role="Statuses_Cursach" EntitySet="Statuses_Cursach" />
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cursach_Users_Cursach1" Association="Self.FK_Projects_Cursach_Users_Cursach1">
+            <End Role="Users_Cursach" EntitySet="Users_Cursach" />
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Agent" Association="Self.FK_Shop_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_AgeCategories_ToyStore" Association="Self.FK_Toys_AgeCategories_ToyStore">
+            <End Role="AgeCategories_ToyStore" EntitySet="AgeCategories_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Categories_ToyStore" Association="Self.FK_Toys_Categories_ToyStore">
+            <End Role="Categories_ToyStore" EntitySet="Categories_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Countries_ToyStore" Association="Self.FK_Toys_Countries_ToyStore">
+            <End Role="Countries_ToyStore" EntitySet="Countries_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Manufacturers_ToyStore" Association="Self.FK_Toys_Manufacturers_ToyStore">
+            <End Role="Manufacturers_ToyStore" EntitySet="Manufacturers_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Providers_ToyStore" Association="Self.FK_Toys_Providers_ToyStore">
+            <End Role="Providers_ToyStore" EntitySet="Providers_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Classes" Association="Self.FK_Users_Classes">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cursach_Employees_Cursach" Association="Self.FK_Users_Cursach_Employees_Cursach">
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+            <End Role="Users_Cursach" EntitySet="Users_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cursach_User_role_Cursach" Association="Self.FK_Users_Cursach_User_role_Cursach">
+            <End Role="User_role_Cursach" EntitySet="User_role_Cursach" />
+            <End Role="Users_Cursach" EntitySet="Users_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles_ToyStore" Association="Self.FK_Users_Roles_ToyStore">
+            <End Role="Roles_ToyStore" EntitySet="Roles_ToyStore" />
+            <End Role="Users_ToyStore" EntitySet="Users_ToyStore" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AgeCategories_ToyStore">
+          <Key>
+            <PropertyRef Name="id_ageCategory" />
+          </Key>
+          <Property Name="id_ageCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ageCategory_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Toys_ToyStore" Relationship="Self.FK_Toys_AgeCategories_ToyStore" FromRole="AgeCategories_ToyStore" ToRole="Toys_ToyStore" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AgentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KPP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="DirectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AgentType" Relationship="Self.FK_Agent_AgentType" FromRole="Agent" ToRole="AgentType" />
+          <NavigationProperty Name="AgentPriorityHistory" Relationship="Self.FK_AgentPriorityHistory_Agent" FromRole="Agent" ToRole="AgentPriorityHistory" />
+          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Agent" FromRole="Agent" ToRole="ProductSale" />
+          <NavigationProperty Name="Shop" Relationship="Self.FK_Shop_Agent" FromRole="Agent" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="AgentPriorityHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PriorityValue" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_AgentPriorityHistory_Agent" FromRole="AgentPriorityHistory" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="AgentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Agent_AgentType" FromRole="AgentType" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="Categories_ToyStore">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Toys_ToyStore" Relationship="Self.FK_Toys_Categories_ToyStore" FromRole="Categories_ToyStore" ToRole="Toys_ToyStore" />
+        </EntityType>
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Main" Relationship="Self.FK_Main_Categorys" FromRole="Categorys" ToRole="Main" />
+        </EntityType>
+        <EntityType Name="Cities_Cursach">
+          <Key>
+            <PropertyRef Name="id_city" />
+          </Key>
+          <Property Name="id_city" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customers_Cursach" Relationship="Self.FK_Customers_Cursach_Cities_Cursach" FromRole="Cities_Cursach" ToRole="Customers_Cursach" />
+          <NavigationProperty Name="Employees_Cursach" Relationship="Self.FK_Employees_Cursach_Cities_Cursach" FromRole="Cities_Cursach" ToRole="Employees_Cursach" />
+        </EntityType>
+        <EntityType Name="Classes">
+          <Key>
+            <PropertyRef Name="id_user_class" />
+          </Key>
+          <Property Name="id_user_class" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="class" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Classes" FromRole="Classes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Countries_ToyStore">
+          <Key>
+            <PropertyRef Name="id_country" />
+          </Key>
+          <Property Name="id_country" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Toys_ToyStore" Relationship="Self.FK_Toys_Countries_ToyStore" FromRole="Countries_ToyStore" ToRole="Toys_ToyStore" />
+        </EntityType>
+        <EntityType Name="Customers_Cursach">
+          <Key>
+            <PropertyRef Name="id_customer" />
+          </Key>
+          <Property Name="id_customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_id_city" Type="Int32" Nullable="false" />
+          <Property Name="customer_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cities_Cursach" Relationship="Self.FK_Customers_Cursach_Cities_Cursach" FromRole="Customers_Cursach" ToRole="Cities_Cursach" />
+          <NavigationProperty Name="Projects_Cursach" Relationship="Self.FK_Projects_Cursach_Customers_Cursach" FromRole="Customers_Cursach" ToRole="Projects_Cursach" />
+        </EntityType>
+        <EntityType Name="Deals">
+          <Key>
+            <PropertyRef Name="id_deal" />
+          </Key>
+          <Property Name="id_deal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="good_id" Type="Int32" Nullable="false" />
+          <Property Name="good_count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Main" Relationship="Self.FK_Deals_Main" FromRole="Deals" ToRole="Main" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Deals_Users" FromRole="Deals" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Departments_Cursach">
+          <Key>
+            <PropertyRef Name="id_department" />
+          </Key>
+          <Property Name="id_department" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="department_id_office" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Offices_Cursach" Relationship="Self.FK_Departments_Cursach_Offices_Cursach" FromRole="Departments_Cursach" ToRole="Offices_Cursach" />
+          <NavigationProperty Name="Employees_Cursach" Relationship="Self.FK_Employees_Cursach_Departments_Cursach" FromRole="Departments_Cursach" ToRole="Employees_Cursach" />
+        </EntityType>
+        <EntityType Name="Directories_ToyStore">
+          <Key>
+            <PropertyRef Name="id_directory" />
+          </Key>
+          <Property Name="id_directory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="directory_id_user" Type="Int32" Nullable="false" />
+          <Property Name="directory_order_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="directory_status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Status_ToyStore" Relationship="Self.FK_Directories_ToyStore_Status_ToyStore" FromRole="Directories_ToyStore" ToRole="Status_ToyStore" />
+          <NavigationProperty Name="Users_ToyStore" Relationship="Self.FK_Directories_Users_ToyStore" FromRole="Directories_ToyStore" ToRole="Users_ToyStore" />
+          <NavigationProperty Name="Orders_ToyStore" Relationship="Self.FK_Orders_ToyStore_Directories_ToyStore" FromRole="Directories_ToyStore" ToRole="Orders_ToyStore" />
+        </EntityType>
+        <EntityType Name="Edenices">
+          <Key>
+            <PropertyRef Name="id_edenic" />
+          </Key>
+          <Property Name="id_edenic" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="edenic_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Main" Relationship="Self.FK_Main_Edenices" FromRole="Edenices" ToRole="Main" />
+        </EntityType>
+        <EntityType Name="Employees_Cursach">
+          <Key>
+            <PropertyRef Name="id_employee" />
+          </Key>
+          <Property Name="id_employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employee_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="employee_age" Type="Int32" Nullable="false" />
+          <Property Name="employee_id_specification" Type="Int32" Nullable="false" />
+          <Property Name="employee_id_city" Type="Int32" Nullable="false" />
+          <Property Name="employee_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employee_id_gender" Type="Int32" Nullable="false" />
+          <Property Name="employee_id_department" Type="Int32" Nullable="false" />
+          <Property Name="employee_personal_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="employee_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cities_Cursach" Relationship="Self.FK_Employees_Cursach_Cities_Cursach" FromRole="Employees_Cursach" ToRole="Cities_Cursach" />
+          <NavigationProperty Name="Departments_Cursach" Relationship="Self.FK_Employees_Cursach_Departments_Cursach" FromRole="Employees_Cursach" ToRole="Departments_Cursach" />
+          <NavigationProperty Name="Genders_Cursach" Relationship="Self.FK_Employees_Cursach_Genders_Cursach" FromRole="Employees_Cursach" ToRole="Genders_Cursach" />
+          <NavigationProperty Name="Group_roles_Cursach" Relationship="Self.FK_Employees_Cursach_Group_roles_Cursach" FromRole="Employees_Cursach" ToRole="Group_roles_Cursach" />
+          <NavigationProperty Name="Specifications_Cursach" Relationship="Self.FK_Employees_Cursach_Specifications_Cursach" FromRole="Employees_Cursach" ToRole="Specifications_Cursach" />
+          <NavigationProperty Name="Groups_Cursach" Relationship="Self.FK_Groups_Cursach_Employees_Cursach" FromRole="Employees_Cursach" ToRole="Groups_Cursach" />
+          <NavigationProperty Name="Users_Cursach" Relationship="Self.FK_Users_Cursach_Employees_Cursach" FromRole="Employees_Cursach" ToRole="Users_Cursach" />
+        </EntityType>
+        <EntityType Name="Genders_Cursach">
+          <Key>
+            <PropertyRef Name="id_gender" />
+          </Key>
+          <Property Name="id_gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gender_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees_Cursach" Relationship="Self.FK_Employees_Cursach_Genders_Cursach" FromRole="Genders_Cursach" ToRole="Employees_Cursach" />
+        </EntityType>
+        <EntityType Name="Givers">
+          <Key>
+            <PropertyRef Name="id_giver" />
+          </Key>
+          <Property Name="id_giver" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="giver_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Main" Relationship="Self.FK_Main_Givers" FromRole="Givers" ToRole="Main" />
+        </EntityType>
+        <EntityType Name="Group_roles_Cursach">
+          <Key>
+            <PropertyRef Name="id_role_group" />
+          </Key>
+          <Property Name="id_role_group" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees_Cursach" Relationship="Self.FK_Employees_Cursach_Group_roles_Cursach" FromRole="Group_roles_Cursach" ToRole="Employees_Cursach" />
+        </EntityType>
+        <EntityType Name="Groups_Cursach">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="id_group" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_id_employee" Type="Int32" Nullable="false" />
+          <Property Name="group_id_role" Type="Int32" Nullable="false" />
+          <Property Name="project_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employees_Cursach" Relationship="Self.FK_Groups_Cursach_Employees_Cursach" FromRole="Groups_Cursach" ToRole="Employees_Cursach" />
+          <NavigationProperty Name="Projects_Cursach" Relationship="Self.FK_Groups_Cursach_Projects_Cursach" FromRole="Groups_Cursach" ToRole="Projects_Cursach" />
+        </EntityType>
+        <EntityType Name="Main">
+          <Key>
+            <PropertyRef Name="id_main" />
+          </Key>
+          <Property Name="id_main" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="article" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_id" Type="Int32" Nullable="false" />
+          <Property Name="edenic_id" Type="Int32" Nullable="false" />
+          <Property Name="prize" Type="Int32" Nullable="false" />
+          <Property Name="maxSkid" Type="Int32" Nullable="false" />
+          <Property Name="maker_id" Type="Int32" Nullable="false" />
+          <Property Name="giver_id" Type="Int32" Nullable="false" />
+          <Property Name="category_id" Type="Int32" Nullable="false" />
+          <Property Name="actSkid" Type="Int32" Nullable="false" />
+          <Property Name="kolOnSklad" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categorys" Relationship="Self.FK_Main_Categorys" FromRole="Main" ToRole="Categorys" />
+          <NavigationProperty Name="Deals" Relationship="Self.FK_Deals_Main" FromRole="Main" ToRole="Deals" />
+          <NavigationProperty Name="Edenices" Relationship="Self.FK_Main_Edenices" FromRole="Main" ToRole="Edenices" />
+          <NavigationProperty Name="Givers" Relationship="Self.FK_Main_Givers" FromRole="Main" ToRole="Givers" />
+          <NavigationProperty Name="Makers" Relationship="Self.FK_Main_Makers" FromRole="Main" ToRole="Makers" />
+          <NavigationProperty Name="Names" Relationship="Self.FK_Main_Names" FromRole="Main" ToRole="Names" />
+        </EntityType>
+        <EntityType Name="Makers">
+          <Key>
+            <PropertyRef Name="id_maker" />
+          </Key>
+          <Property Name="id_maker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="maker_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Main" Relationship="Self.FK_Main_Makers" FromRole="Makers" ToRole="Main" />
+        </EntityType>
+        <EntityType Name="Manufacturers_ToyStore">
+          <Key>
+            <PropertyRef Name="id_manufacturer" />
+          </Key>
+          <Property Name="id_manufacturer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manufacturer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Toys_ToyStore" Relationship="Self.FK_Toys_Manufacturers_ToyStore" FromRole="Manufacturers_ToyStore" ToRole="Toys_ToyStore" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountInPack" Type="Int32" Nullable="false" />
+          <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountInStock" Type="Double" />
+          <Property Name="MinCount" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MaterialType" Relationship="Self.FK_Material_MaterialType" FromRole="Material" ToRole="MaterialType" />
+          <NavigationProperty Name="MaterialCountHistory" Relationship="Self.FK_MaterialCountHistory_Material" FromRole="Material" ToRole="MaterialCountHistory" />
+          <NavigationProperty Name="ProductMaterial" Relationship="Self.FK_ProductMaterial_Material" FromRole="Material" ToRole="ProductMaterial" />
+          <NavigationProperty Name="Supplier" Relationship="Self.MaterialSupplier" FromRole="Material" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="MaterialCountHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CountValue" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_MaterialCountHistory_Material" FromRole="MaterialCountHistory" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DefectedPercent" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Material_MaterialType" FromRole="MaterialType" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Names">
+          <Key>
+            <PropertyRef Name="id_name" />
+          </Key>
+          <Property Name="id_name" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Main" Relationship="Self.FK_Main_Names" FromRole="Names" ToRole="Main" />
+        </EntityType>
+        <EntityType Name="Offices_Cursach">
+          <Key>
+            <PropertyRef Name="id_building" />
+          </Key>
+          <Property Name="id_building" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="office_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="office_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Departments_Cursach" Relationship="Self.FK_Departments_Cursach_Offices_Cursach" FromRole="Offices_Cursach" ToRole="Departments_Cursach" />
+        </EntityType>
+        <EntityType Name="Orders_ToyStore">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_id_directory" Type="Int32" Nullable="false" />
+          <Property Name="order_id_toy" Type="Int32" Nullable="false" />
+          <Property Name="order_quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Directories_ToyStore" Relationship="Self.FK_Orders_ToyStore_Directories_ToyStore" FromRole="Orders_ToyStore" ToRole="Directories_ToyStore" />
+          <NavigationProperty Name="Toys_ToyStore" Relationship="Self.FK_Orders_Toys_ToyStore" FromRole="Orders_ToyStore" ToRole="Toys_ToyStore" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductTypeID" Type="Int32" />
+          <Property Name="ArticleNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductionPersonCount" Type="Int32" />
+          <Property Name="ProductionWorkshopNumber" Type="Int32" />
+          <Property Name="MinCostForAgent" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
+          <NavigationProperty Name="ProductCostHistory" Relationship="Self.FK_ProductCostHistory_Product" FromRole="Product" ToRole="ProductCostHistory" />
+          <NavigationProperty Name="ProductMaterial" Relationship="Self.FK_ProductMaterial_Product" FromRole="Product" ToRole="ProductMaterial" />
+          <NavigationProperty Name="ProductSale" Relationship="Self.FK_ProductSale_Product" FromRole="Product" ToRole="ProductSale" />
+        </EntityType>
+        <EntityType Name="ProductCostHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CostValue" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductCostHistory_Product" FromRole="ProductCostHistory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductMaterial">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="MaterialID" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Double" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_ProductMaterial_Material" FromRole="ProductMaterial" ToRole="Material" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductMaterial_Product" FromRole="ProductMaterial" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductSale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgentID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ProductCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_ProductSale_Agent" FromRole="ProductSale" ToRole="Agent" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductSale_Product" FromRole="ProductSale" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DefectedPercent" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_ProductType" FromRole="ProductType" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Projects_Cursach">
+          <Key>
+            <PropertyRef Name="id_project" />
+          </Key>
+          <Property Name="id_project" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="project_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="project_status" Type="Int32" Nullable="false" />
+          <Property Name="customer_id" Type="Int32" Nullable="false" />
+          <Property Name="user_creator_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customers_Cursach" Relationship="Self.FK_Projects_Cursach_Customers_Cursach" FromRole="Projects_Cursach" ToRole="Customers_Cursach" />
+          <NavigationProperty Name="Groups_Cursach" Relationship="Self.FK_Groups_Cursach_Projects_Cursach" FromRole="Projects_Cursach" ToRole="Groups_Cursach" />
+          <NavigationProperty Name="Statuses_Cursach" Relationship="Self.FK_Projects_Cursach_Statuses_Cursach" FromRole="Projects_Cursach" ToRole="Statuses_Cursach" />
+          <NavigationProperty Name="Users_Cursach" Relationship="Self.FK_Projects_Cursach_Users_Cursach1" FromRole="Projects_Cursach" ToRole="Users_Cursach" />
+        </EntityType>
+        <EntityType Name="Providers_ToyStore">
+          <Key>
+            <PropertyRef Name="id_provider" />
+          </Key>
+          <Property Name="id_provider" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="provider_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Toys_ToyStore" Relationship="Self.FK_Toys_Providers_ToyStore" FromRole="Providers_ToyStore" ToRole="Toys_ToyStore" />
+        </EntityType>
+        <EntityType Name="Roles_ToyStore">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users_ToyStore" Relationship="Self.FK_Users_Roles_ToyStore" FromRole="Roles_ToyStore" ToRole="Users_ToyStore" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AgentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Shop_Agent" FromRole="Shop" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="Specifications_Cursach">
+          <Key>
+            <PropertyRef Name="id_specification" />
+          </Key>
+          <Property Name="id_specification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="specification_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees_Cursach" Relationship="Self.FK_Employees_Cursach_Specifications_Cursach" FromRole="Specifications_Cursach" ToRole="Employees_Cursach" />
+        </EntityType>
+        <EntityType Name="Status_ToyStore">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Directories_ToyStore" Relationship="Self.FK_Directories_ToyStore_Status_ToyStore" FromRole="Status_ToyStore" ToRole="Directories_ToyStore" />
+        </EntityType>
+        <EntityType Name="Statuses_Cursach">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="project_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Projects_Cursach" Relationship="Self.FK_Projects_Cursach_Statuses_Cursach" FromRole="Statuses_Cursach" ToRole="Projects_Cursach" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="QualityRating" Type="Int32" />
+          <Property Name="SupplierType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Material" Relationship="Self.MaterialSupplier" FromRole="Supplier" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Toys_ToyStore">
+          <Key>
+            <PropertyRef Name="id_toy" />
+          </Key>
+          <Property Name="id_toy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="toy_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="toy_id_category" Type="Int32" Nullable="false" />
+          <Property Name="toy_id_country" Type="Int32" Nullable="false" />
+          <Property Name="toy_id_manufacturer" Type="Int32" Nullable="false" />
+          <Property Name="toy_id_provider" Type="Int32" Nullable="false" />
+          <Property Name="toy_wholesalePrice" Type="Int32" Nullable="false" />
+          <Property Name="toy_retailPrice" Type="Int32" Nullable="false" />
+          <Property Name="toy_id_ageCategory" Type="Int32" Nullable="false" />
+          <Property Name="toy_discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="toy_image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AgeCategories_ToyStore" Relationship="Self.FK_Toys_AgeCategories_ToyStore" FromRole="Toys_ToyStore" ToRole="AgeCategories_ToyStore" />
+          <NavigationProperty Name="Categories_ToyStore" Relationship="Self.FK_Toys_Categories_ToyStore" FromRole="Toys_ToyStore" ToRole="Categories_ToyStore" />
+          <NavigationProperty Name="Countries_ToyStore" Relationship="Self.FK_Toys_Countries_ToyStore" FromRole="Toys_ToyStore" ToRole="Countries_ToyStore" />
+          <NavigationProperty Name="Manufacturers_ToyStore" Relationship="Self.FK_Toys_Manufacturers_ToyStore" FromRole="Toys_ToyStore" ToRole="Manufacturers_ToyStore" />
+          <NavigationProperty Name="Orders_ToyStore" Relationship="Self.FK_Orders_Toys_ToyStore" FromRole="Toys_ToyStore" ToRole="Orders_ToyStore" />
+          <NavigationProperty Name="Providers_ToyStore" Relationship="Self.FK_Toys_Providers_ToyStore" FromRole="Toys_ToyStore" ToRole="Providers_ToyStore" />
+        </EntityType>
+        <EntityType Name="User_role_Cursach">
+          <Key>
+            <PropertyRef Name="id_user_role" />
+          </Key>
+          <Property Name="id_user_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users_Cursach" Relationship="Self.FK_Users_Cursach_User_role_Cursach" FromRole="User_role_Cursach" ToRole="Users_Cursach" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_class_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="Self.FK_Users_Classes" FromRole="Users" ToRole="Classes" />
+          <NavigationProperty Name="Deals" Relationship="Self.FK_Deals_Users" FromRole="Users" ToRole="Deals" />
+        </EntityType>
+        <EntityType Name="Users_Cursach">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_id_role" Type="Int32" Nullable="false" />
+          <Property Name="employee_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employees_Cursach" Relationship="Self.FK_Users_Cursach_Employees_Cursach" FromRole="Users_Cursach" ToRole="Employees_Cursach" />
+          <NavigationProperty Name="Projects_Cursach" Relationship="Self.FK_Projects_Cursach_Users_Cursach1" FromRole="Users_Cursach" ToRole="Projects_Cursach" />
+          <NavigationProperty Name="User_role_Cursach" Relationship="Self.FK_Users_Cursach_User_role_Cursach" FromRole="Users_Cursach" ToRole="User_role_Cursach" />
+        </EntityType>
+        <EntityType Name="Users_ToyStore">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_login" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="user_password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="user_id_role" Type="Int32" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_phone" Type="String" MaxLength="17" FixedLength="true" Unicode="true" />
+          <Property Name="user_mail" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Directories_ToyStore" Relationship="Self.FK_Directories_Users_ToyStore" FromRole="Users_ToyStore" ToRole="Directories_ToyStore" />
+          <NavigationProperty Name="Roles_ToyStore" Relationship="Self.FK_Users_Roles_ToyStore" FromRole="Users_ToyStore" ToRole="Roles_ToyStore" />
+        </EntityType>
+        <Association Name="FK_Toys_AgeCategories_ToyStore">
+          <End Role="AgeCategories_ToyStore" Type="Self.AgeCategories_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeCategories_ToyStore">
+              <PropertyRef Name="id_ageCategory" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_ageCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Agent_AgentType">
+          <End Role="AgentType" Type="Self.AgentType" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="AgentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AgentPriorityHistory_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="AgentPriorityHistory" Type="Self.AgentPriorityHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AgentPriorityHistory">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shop_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Shop" Type="Self.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="AgentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Categories_ToyStore">
+          <End Role="Categories_ToyStore" Type="Self.Categories_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories_ToyStore">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Categorys">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="id_category" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_Cursach_Cities_Cursach">
+          <End Role="Cities_Cursach" Type="Self.Cities_Cursach" Multiplicity="1" />
+          <End Role="Customers_Cursach" Type="Self.Customers_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities_Cursach">
+              <PropertyRef Name="id_city" />
+            </Principal>
+            <Dependent Role="Customers_Cursach">
+              <PropertyRef Name="customer_id_city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Cities_Cursach">
+          <End Role="Cities_Cursach" Type="Self.Cities_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities_Cursach">
+              <PropertyRef Name="id_city" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Classes">
+          <End Role="Classes" Type="Self.Classes" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Classes">
+              <PropertyRef Name="id_user_class" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="user_class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Countries_ToyStore">
+          <End Role="Countries_ToyStore" Type="Self.Countries_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries_ToyStore">
+              <PropertyRef Name="id_country" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cursach_Customers_Cursach">
+          <End Role="Customers_Cursach" Type="Self.Customers_Cursach" Multiplicity="1" />
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers_Cursach">
+              <PropertyRef Name="id_customer" />
+            </Principal>
+            <Dependent Role="Projects_Cursach">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deals_Main">
+          <End Role="Main" Type="Self.Main" Multiplicity="1" />
+          <End Role="Deals" Type="Self.Deals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Main">
+              <PropertyRef Name="id_main" />
+            </Principal>
+            <Dependent Role="Deals">
+              <PropertyRef Name="good_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deals_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Deals" Type="Self.Deals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Deals">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Departments_Cursach_Offices_Cursach">
+          <End Role="Offices_Cursach" Type="Self.Offices_Cursach" Multiplicity="1" />
+          <End Role="Departments_Cursach" Type="Self.Departments_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offices_Cursach">
+              <PropertyRef Name="id_building" />
+            </Principal>
+            <Dependent Role="Departments_Cursach">
+              <PropertyRef Name="department_id_office" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Departments_Cursach">
+          <End Role="Departments_Cursach" Type="Self.Departments_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments_Cursach">
+              <PropertyRef Name="id_department" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Directories_ToyStore_Status_ToyStore">
+          <End Role="Status_ToyStore" Type="Self.Status_ToyStore" Multiplicity="1" />
+          <End Role="Directories_ToyStore" Type="Self.Directories_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_ToyStore">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Directories_ToyStore">
+              <PropertyRef Name="directory_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Directories_Users_ToyStore">
+          <End Role="Users_ToyStore" Type="Self.Users_ToyStore" Multiplicity="1" />
+          <End Role="Directories_ToyStore" Type="Self.Directories_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_ToyStore">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Directories_ToyStore">
+              <PropertyRef Name="directory_id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_ToyStore_Directories_ToyStore">
+          <End Role="Directories_ToyStore" Type="Self.Directories_ToyStore" Multiplicity="1" />
+          <End Role="Orders_ToyStore" Type="Self.Orders_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directories_ToyStore">
+              <PropertyRef Name="id_directory" />
+            </Principal>
+            <Dependent Role="Orders_ToyStore">
+              <PropertyRef Name="order_id_directory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Edenices">
+          <End Role="Edenices" Type="Self.Edenices" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Edenices">
+              <PropertyRef Name="id_edenic" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="edenic_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Genders_Cursach">
+          <End Role="Genders_Cursach" Type="Self.Genders_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders_Cursach">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Group_roles_Cursach">
+          <End Role="Group_roles_Cursach" Type="Self.Group_roles_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group_roles_Cursach">
+              <PropertyRef Name="id_role_group" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Cursach_Specifications_Cursach">
+          <End Role="Specifications_Cursach" Type="Self.Specifications_Cursach" Multiplicity="1" />
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specifications_Cursach">
+              <PropertyRef Name="id_specification" />
+            </Principal>
+            <Dependent Role="Employees_Cursach">
+              <PropertyRef Name="employee_id_specification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Cursach_Employees_Cursach">
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="1" />
+          <End Role="Groups_Cursach" Type="Self.Groups_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees_Cursach">
+              <PropertyRef Name="id_employee" />
+            </Principal>
+            <Dependent Role="Groups_Cursach">
+              <PropertyRef Name="group_id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cursach_Employees_Cursach">
+          <End Role="Employees_Cursach" Type="Self.Employees_Cursach" Multiplicity="1" />
+          <End Role="Users_Cursach" Type="Self.Users_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees_Cursach">
+              <PropertyRef Name="id_employee" />
+            </Principal>
+            <Dependent Role="Users_Cursach">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Givers">
+          <End Role="Givers" Type="Self.Givers" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Givers">
+              <PropertyRef Name="id_giver" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="giver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Cursach_Projects_Cursach">
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="1" />
+          <End Role="Groups_Cursach" Type="Self.Groups_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects_Cursach">
+              <PropertyRef Name="id_project" />
+            </Principal>
+            <Dependent Role="Groups_Cursach">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Makers">
+          <End Role="Makers" Type="Self.Makers" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Makers">
+              <PropertyRef Name="id_maker" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="maker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Main_Names">
+          <End Role="Names" Type="Self.Names" Multiplicity="1" />
+          <End Role="Main" Type="Self.Main" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Names">
+              <PropertyRef Name="id_name" />
+            </Principal>
+            <Dependent Role="Main">
+              <PropertyRef Name="name_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Manufacturers_ToyStore">
+          <End Role="Manufacturers_ToyStore" Type="Self.Manufacturers_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers_ToyStore">
+              <PropertyRef Name="id_manufacturer" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_manufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_MaterialType">
+          <End Role="MaterialType" Type="Self.MaterialType" Multiplicity="1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="MaterialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialCountHistory_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="MaterialCountHistory" Type="Self.MaterialCountHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaterialCountHistory">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductMaterial_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="ProductMaterial" Type="Self.ProductMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductMaterial">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Toys_ToyStore">
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="1" />
+          <End Role="Orders_ToyStore" Type="Self.Orders_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Toys_ToyStore">
+              <PropertyRef Name="id_toy" />
+            </Principal>
+            <Dependent Role="Orders_ToyStore">
+              <PropertyRef Name="order_id_toy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCostHistory_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductCostHistory" Type="Self.ProductCostHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductCostHistory">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductMaterial_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductMaterial" Type="Self.ProductMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductMaterial">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSale_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductSale" Type="Self.ProductSale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductSale">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cursach_Statuses_Cursach">
+          <End Role="Statuses_Cursach" Type="Self.Statuses_Cursach" Multiplicity="1" />
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuses_Cursach">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Projects_Cursach">
+              <PropertyRef Name="project_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cursach_Users_Cursach1">
+          <End Role="Users_Cursach" Type="Self.Users_Cursach" Multiplicity="1" />
+          <End Role="Projects_Cursach" Type="Self.Projects_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_Cursach">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Projects_Cursach">
+              <PropertyRef Name="user_creator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Toys_Providers_ToyStore">
+          <End Role="Providers_ToyStore" Type="Self.Providers_ToyStore" Multiplicity="1" />
+          <End Role="Toys_ToyStore" Type="Self.Toys_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Providers_ToyStore">
+              <PropertyRef Name="id_provider" />
+            </Principal>
+            <Dependent Role="Toys_ToyStore">
+              <PropertyRef Name="toy_id_provider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles_ToyStore">
+          <End Role="Roles_ToyStore" Type="Self.Roles_ToyStore" Multiplicity="1" />
+          <End Role="Users_ToyStore" Type="Self.Users_ToyStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles_ToyStore">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="Users_ToyStore">
+              <PropertyRef Name="user_id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Cursach_User_role_Cursach">
+          <End Role="User_role_Cursach" Type="Self.User_role_Cursach" Multiplicity="1" />
+          <End Role="Users_Cursach" Type="Self.Users_Cursach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_role_Cursach">
+              <PropertyRef Name="id_user_role" />
+            </Principal>
+            <Dependent Role="Users_Cursach">
+              <PropertyRef Name="user_id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterialSupplier">
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AgeCategories_ToyStore" EntityType="Self.AgeCategories_ToyStore" />
+          <EntitySet Name="Agent" EntityType="Self.Agent" />
+          <EntitySet Name="AgentPriorityHistory" EntityType="Self.AgentPriorityHistory" />
+          <EntitySet Name="AgentType" EntityType="Self.AgentType" />
+          <EntitySet Name="Categories_ToyStore" EntityType="Self.Categories_ToyStore" />
+          <EntitySet Name="Categorys" EntityType="Self.Categorys" />
+          <EntitySet Name="Cities_Cursach" EntityType="Self.Cities_Cursach" />
+          <EntitySet Name="Classes" EntityType="Self.Classes" />
+          <EntitySet Name="Countries_ToyStore" EntityType="Self.Countries_ToyStore" />
+          <EntitySet Name="Customers_Cursach" EntityType="Self.Customers_Cursach" />
+          <EntitySet Name="Deals" EntityType="Self.Deals" />
+          <EntitySet Name="Departments_Cursach" EntityType="Self.Departments_Cursach" />
+          <EntitySet Name="Directories_ToyStore" EntityType="Self.Directories_ToyStore" />
+          <EntitySet Name="Edenices" EntityType="Self.Edenices" />
+          <EntitySet Name="Employees_Cursach" EntityType="Self.Employees_Cursach" />
+          <EntitySet Name="Genders_Cursach" EntityType="Self.Genders_Cursach" />
+          <EntitySet Name="Givers" EntityType="Self.Givers" />
+          <EntitySet Name="Group_roles_Cursach" EntityType="Self.Group_roles_Cursach" />
+          <EntitySet Name="Groups_Cursach" EntityType="Self.Groups_Cursach" />
+          <EntitySet Name="Main" EntityType="Self.Main" />
+          <EntitySet Name="Makers" EntityType="Self.Makers" />
+          <EntitySet Name="Manufacturers_ToyStore" EntityType="Self.Manufacturers_ToyStore" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="MaterialCountHistory" EntityType="Self.MaterialCountHistory" />
+          <EntitySet Name="MaterialType" EntityType="Self.MaterialType" />
+          <EntitySet Name="Names" EntityType="Self.Names" />
+          <EntitySet Name="Offices_Cursach" EntityType="Self.Offices_Cursach" />
+          <EntitySet Name="Orders_ToyStore" EntityType="Self.Orders_ToyStore" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="ProductCostHistory" EntityType="Self.ProductCostHistory" />
+          <EntitySet Name="ProductMaterial" EntityType="Self.ProductMaterial" />
+          <EntitySet Name="ProductSale" EntityType="Self.ProductSale" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" />
+          <EntitySet Name="Projects_Cursach" EntityType="Self.Projects_Cursach" />
+          <EntitySet Name="Providers_ToyStore" EntityType="Self.Providers_ToyStore" />
+          <EntitySet Name="Roles_ToyStore" EntityType="Self.Roles_ToyStore" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" />
+          <EntitySet Name="Specifications_Cursach" EntityType="Self.Specifications_Cursach" />
+          <EntitySet Name="Status_ToyStore" EntityType="Self.Status_ToyStore" />
+          <EntitySet Name="Statuses_Cursach" EntityType="Self.Statuses_Cursach" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Toys_ToyStore" EntityType="Self.Toys_ToyStore" />
+          <EntitySet Name="User_role_Cursach" EntityType="Self.User_role_Cursach" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Users_Cursach" EntityType="Self.Users_Cursach" />
+          <EntitySet Name="Users_ToyStore" EntityType="Self.Users_ToyStore" />
+          <AssociationSet Name="FK_Toys_AgeCategories_ToyStore" Association="Self.FK_Toys_AgeCategories_ToyStore">
+            <End Role="AgeCategories_ToyStore" EntitySet="AgeCategories_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Agent_AgentType" Association="Self.FK_Agent_AgentType">
+            <End Role="AgentType" EntitySet="AgentType" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AgentPriorityHistory_Agent" Association="Self.FK_AgentPriorityHistory_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="AgentPriorityHistory" EntitySet="AgentPriorityHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Agent" Association="Self.FK_ProductSale_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shop_Agent" Association="Self.FK_Shop_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Categories_ToyStore" Association="Self.FK_Toys_Categories_ToyStore">
+            <End Role="Categories_ToyStore" EntitySet="Categories_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Categorys" Association="Self.FK_Main_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_Cursach_Cities_Cursach" Association="Self.FK_Customers_Cursach_Cities_Cursach">
+            <End Role="Cities_Cursach" EntitySet="Cities_Cursach" />
+            <End Role="Customers_Cursach" EntitySet="Customers_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Cities_Cursach" Association="Self.FK_Employees_Cursach_Cities_Cursach">
+            <End Role="Cities_Cursach" EntitySet="Cities_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Classes" Association="Self.FK_Users_Classes">
+            <End Role="Classes" EntitySet="Classes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Countries_ToyStore" Association="Self.FK_Toys_Countries_ToyStore">
+            <End Role="Countries_ToyStore" EntitySet="Countries_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cursach_Customers_Cursach" Association="Self.FK_Projects_Cursach_Customers_Cursach">
+            <End Role="Customers_Cursach" EntitySet="Customers_Cursach" />
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deals_Main" Association="Self.FK_Deals_Main">
+            <End Role="Main" EntitySet="Main" />
+            <End Role="Deals" EntitySet="Deals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deals_Users" Association="Self.FK_Deals_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Deals" EntitySet="Deals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Departments_Cursach_Offices_Cursach" Association="Self.FK_Departments_Cursach_Offices_Cursach">
+            <End Role="Offices_Cursach" EntitySet="Offices_Cursach" />
+            <End Role="Departments_Cursach" EntitySet="Departments_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Departments_Cursach" Association="Self.FK_Employees_Cursach_Departments_Cursach">
+            <End Role="Departments_Cursach" EntitySet="Departments_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Directories_ToyStore_Status_ToyStore" Association="Self.FK_Directories_ToyStore_Status_ToyStore">
+            <End Role="Status_ToyStore" EntitySet="Status_ToyStore" />
+            <End Role="Directories_ToyStore" EntitySet="Directories_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Directories_Users_ToyStore" Association="Self.FK_Directories_Users_ToyStore">
+            <End Role="Users_ToyStore" EntitySet="Users_ToyStore" />
+            <End Role="Directories_ToyStore" EntitySet="Directories_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_ToyStore_Directories_ToyStore" Association="Self.FK_Orders_ToyStore_Directories_ToyStore">
+            <End Role="Directories_ToyStore" EntitySet="Directories_ToyStore" />
+            <End Role="Orders_ToyStore" EntitySet="Orders_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Edenices" Association="Self.FK_Main_Edenices">
+            <End Role="Edenices" EntitySet="Edenices" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Genders_Cursach" Association="Self.FK_Employees_Cursach_Genders_Cursach">
+            <End Role="Genders_Cursach" EntitySet="Genders_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Group_roles_Cursach" Association="Self.FK_Employees_Cursach_Group_roles_Cursach">
+            <End Role="Group_roles_Cursach" EntitySet="Group_roles_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Cursach_Specifications_Cursach" Association="Self.FK_Employees_Cursach_Specifications_Cursach">
+            <End Role="Specifications_Cursach" EntitySet="Specifications_Cursach" />
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Cursach_Employees_Cursach" Association="Self.FK_Groups_Cursach_Employees_Cursach">
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+            <End Role="Groups_Cursach" EntitySet="Groups_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cursach_Employees_Cursach" Association="Self.FK_Users_Cursach_Employees_Cursach">
+            <End Role="Employees_Cursach" EntitySet="Employees_Cursach" />
+            <End Role="Users_Cursach" EntitySet="Users_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Givers" Association="Self.FK_Main_Givers">
+            <End Role="Givers" EntitySet="Givers" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Cursach_Projects_Cursach" Association="Self.FK_Groups_Cursach_Projects_Cursach">
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+            <End Role="Groups_Cursach" EntitySet="Groups_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Makers" Association="Self.FK_Main_Makers">
+            <End Role="Makers" EntitySet="Makers" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Main_Names" Association="Self.FK_Main_Names">
+            <End Role="Names" EntitySet="Names" />
+            <End Role="Main" EntitySet="Main" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Manufacturers_ToyStore" Association="Self.FK_Toys_Manufacturers_ToyStore">
+            <End Role="Manufacturers_ToyStore" EntitySet="Manufacturers_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
+            <End Role="MaterialType" EntitySet="MaterialType" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialCountHistory_Material" Association="Self.FK_MaterialCountHistory_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="MaterialCountHistory" EntitySet="MaterialCountHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductMaterial_Material" Association="Self.FK_ProductMaterial_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="ProductMaterial" EntitySet="ProductMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Toys_ToyStore" Association="Self.FK_Orders_Toys_ToyStore">
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+            <End Role="Orders_ToyStore" EntitySet="Orders_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCostHistory_Product" Association="Self.FK_ProductCostHistory_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductCostHistory" EntitySet="ProductCostHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductMaterial_Product" Association="Self.FK_ProductMaterial_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductMaterial" EntitySet="ProductMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSale_Product" Association="Self.FK_ProductSale_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductSale" EntitySet="ProductSale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cursach_Statuses_Cursach" Association="Self.FK_Projects_Cursach_Statuses_Cursach">
+            <End Role="Statuses_Cursach" EntitySet="Statuses_Cursach" />
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cursach_Users_Cursach1" Association="Self.FK_Projects_Cursach_Users_Cursach1">
+            <End Role="Users_Cursach" EntitySet="Users_Cursach" />
+            <End Role="Projects_Cursach" EntitySet="Projects_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Toys_Providers_ToyStore" Association="Self.FK_Toys_Providers_ToyStore">
+            <End Role="Providers_ToyStore" EntitySet="Providers_ToyStore" />
+            <End Role="Toys_ToyStore" EntitySet="Toys_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles_ToyStore" Association="Self.FK_Users_Roles_ToyStore">
+            <End Role="Roles_ToyStore" EntitySet="Roles_ToyStore" />
+            <End Role="Users_ToyStore" EntitySet="Users_ToyStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Cursach_User_role_Cursach" Association="Self.FK_Users_Cursach_User_role_Cursach">
+            <End Role="User_role_Cursach" EntitySet="User_role_Cursach" />
+            <End Role="Users_Cursach" EntitySet="Users_Cursach" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialSupplier" Association="Self.MaterialSupplier">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AgeCategories_ToyStore">
+            <EntityTypeMapping TypeName="Model.AgeCategories_ToyStore">
+              <MappingFragment StoreEntitySet="AgeCategories_ToyStore">
+                <ScalarProperty Name="id_ageCategory" ColumnName="id_ageCategory" />
+                <ScalarProperty Name="ageCategory_name" ColumnName="ageCategory_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agent">
+            <EntityTypeMapping TypeName="Model.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AgentTypeID" ColumnName="AgentTypeID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="KPP" ColumnName="KPP" />
+                <ScalarProperty Name="DirectorName" ColumnName="DirectorName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentPriorityHistory">
+            <EntityTypeMapping TypeName="Model.AgentPriorityHistory">
+              <MappingFragment StoreEntitySet="AgentPriorityHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="PriorityValue" ColumnName="PriorityValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentType">
+            <EntityTypeMapping TypeName="Model.AgentType">
+              <MappingFragment StoreEntitySet="AgentType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories_ToyStore">
+            <EntityTypeMapping TypeName="Model.Categories_ToyStore">
+              <MappingFragment StoreEntitySet="Categories_ToyStore">
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="Model.Categorys">
+              <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities_Cursach">
+            <EntityTypeMapping TypeName="Model.Cities_Cursach">
+              <MappingFragment StoreEntitySet="Cities_Cursach">
+                <ScalarProperty Name="id_city" ColumnName="id_city" />
+                <ScalarProperty Name="city_name" ColumnName="city_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="Model.Classes">
+              <MappingFragment StoreEntitySet="Classes">
+                <ScalarProperty Name="id_user_class" ColumnName="id_user_class" />
+                <ScalarProperty Name="class" ColumnName="class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries_ToyStore">
+            <EntityTypeMapping TypeName="Model.Countries_ToyStore">
+              <MappingFragment StoreEntitySet="Countries_ToyStore">
+                <ScalarProperty Name="id_country" ColumnName="id_country" />
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers_Cursach">
+            <EntityTypeMapping TypeName="Model.Customers_Cursach">
+              <MappingFragment StoreEntitySet="Customers_Cursach">
+                <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="customer_id_city" ColumnName="customer_id_city" />
+                <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deals">
+            <EntityTypeMapping TypeName="Model.Deals">
+              <MappingFragment StoreEntitySet="Deals">
+                <ScalarProperty Name="id_deal" ColumnName="id_deal" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="good_id" ColumnName="good_id" />
+                <ScalarProperty Name="good_count" ColumnName="good_count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments_Cursach">
+            <EntityTypeMapping TypeName="Model.Departments_Cursach">
+              <MappingFragment StoreEntitySet="Departments_Cursach">
+                <ScalarProperty Name="id_department" ColumnName="id_department" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="department_id_office" ColumnName="department_id_office" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Directories_ToyStore">
+            <EntityTypeMapping TypeName="Model.Directories_ToyStore">
+              <MappingFragment StoreEntitySet="Directories_ToyStore">
+                <ScalarProperty Name="id_directory" ColumnName="id_directory" />
+                <ScalarProperty Name="directory_id_user" ColumnName="directory_id_user" />
+                <ScalarProperty Name="directory_order_number" ColumnName="directory_order_number" />
+                <ScalarProperty Name="directory_status" ColumnName="directory_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Edenices">
+            <EntityTypeMapping TypeName="Model.Edenices">
+              <MappingFragment StoreEntitySet="Edenices">
+                <ScalarProperty Name="id_edenic" ColumnName="id_edenic" />
+                <ScalarProperty Name="edenic_name" ColumnName="edenic_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees_Cursach">
+            <EntityTypeMapping TypeName="Model.Employees_Cursach">
+              <MappingFragment StoreEntitySet="Employees_Cursach">
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="employee_name" ColumnName="employee_name" />
+                <ScalarProperty Name="employee_age" ColumnName="employee_age" />
+                <ScalarProperty Name="employee_id_specification" ColumnName="employee_id_specification" />
+                <ScalarProperty Name="employee_id_city" ColumnName="employee_id_city" />
+                <ScalarProperty Name="employee_image" ColumnName="employee_image" />
+                <ScalarProperty Name="employee_id_gender" ColumnName="employee_id_gender" />
+                <ScalarProperty Name="employee_id_department" ColumnName="employee_id_department" />
+                <ScalarProperty Name="employee_personal_code" ColumnName="employee_personal_code" />
+                <ScalarProperty Name="employee_role" ColumnName="employee_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders_Cursach">
+            <EntityTypeMapping TypeName="Model.Genders_Cursach">
+              <MappingFragment StoreEntitySet="Genders_Cursach">
+                <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+                <ScalarProperty Name="gender_name" ColumnName="gender_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Givers">
+            <EntityTypeMapping TypeName="Model.Givers">
+              <MappingFragment StoreEntitySet="Givers">
+                <ScalarProperty Name="id_giver" ColumnName="id_giver" />
+                <ScalarProperty Name="giver_name" ColumnName="giver_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Group_roles_Cursach">
+            <EntityTypeMapping TypeName="Model.Group_roles_Cursach">
+              <MappingFragment StoreEntitySet="Group_roles_Cursach">
+                <ScalarProperty Name="id_role_group" ColumnName="id_role_group" />
+                <ScalarProperty Name="role_group" ColumnName="role_group" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups_Cursach">
+            <EntityTypeMapping TypeName="Model.Groups_Cursach">
+              <MappingFragment StoreEntitySet="Groups_Cursach">
+                <ScalarProperty Name="id_group" ColumnName="id_group" />
+                <ScalarProperty Name="group_id_employee" ColumnName="group_id_employee" />
+                <ScalarProperty Name="group_id_role" ColumnName="group_id_role" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Main">
+            <EntityTypeMapping TypeName="Model.Main">
+              <MappingFragment StoreEntitySet="Main">
+                <ScalarProperty Name="id_main" ColumnName="id_main" />
+                <ScalarProperty Name="article" ColumnName="article" />
+                <ScalarProperty Name="name_id" ColumnName="name_id" />
+                <ScalarProperty Name="edenic_id" ColumnName="edenic_id" />
+                <ScalarProperty Name="prize" ColumnName="prize" />
+                <ScalarProperty Name="maxSkid" ColumnName="maxSkid" />
+                <ScalarProperty Name="maker_id" ColumnName="maker_id" />
+                <ScalarProperty Name="giver_id" ColumnName="giver_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="actSkid" ColumnName="actSkid" />
+                <ScalarProperty Name="kolOnSklad" ColumnName="kolOnSklad" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Makers">
+            <EntityTypeMapping TypeName="Model.Makers">
+              <MappingFragment StoreEntitySet="Makers">
+                <ScalarProperty Name="id_maker" ColumnName="id_maker" />
+                <ScalarProperty Name="maker_name" ColumnName="maker_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers_ToyStore">
+            <EntityTypeMapping TypeName="Model.Manufacturers_ToyStore">
+              <MappingFragment StoreEntitySet="Manufacturers_ToyStore">
+                <ScalarProperty Name="id_manufacturer" ColumnName="id_manufacturer" />
+                <ScalarProperty Name="manufacturer_name" ColumnName="manufacturer_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="Model.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CountInPack" ColumnName="CountInPack" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="CountInStock" ColumnName="CountInStock" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="MaterialTypeID" ColumnName="MaterialTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialCountHistory">
+            <EntityTypeMapping TypeName="Model.MaterialCountHistory">
+              <MappingFragment StoreEntitySet="MaterialCountHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="CountValue" ColumnName="CountValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialType">
+            <EntityTypeMapping TypeName="Model.MaterialType">
+              <MappingFragment StoreEntitySet="MaterialType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DefectedPercent" ColumnName="DefectedPercent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Names">
+            <EntityTypeMapping TypeName="Model.Names">
+              <MappingFragment StoreEntitySet="Names">
+                <ScalarProperty Name="id_name" ColumnName="id_name" />
+                <ScalarProperty Name="name_name" ColumnName="name_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offices_Cursach">
+            <EntityTypeMapping TypeName="Model.Offices_Cursach">
+              <MappingFragment StoreEntitySet="Offices_Cursach">
+                <ScalarProperty Name="id_building" ColumnName="id_building" />
+                <ScalarProperty Name="office_name" ColumnName="office_name" />
+                <ScalarProperty Name="office_address" ColumnName="office_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders_ToyStore">
+            <EntityTypeMapping TypeName="Model.Orders_ToyStore">
+              <MappingFragment StoreEntitySet="Orders_ToyStore">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="order_id_directory" ColumnName="order_id_directory" />
+                <ScalarProperty Name="order_id_toy" ColumnName="order_id_toy" />
+                <ScalarProperty Name="order_quantity" ColumnName="order_quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="ArticleNumber" ColumnName="ArticleNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ProductionPersonCount" ColumnName="ProductionPersonCount" />
+                <ScalarProperty Name="ProductionWorkshopNumber" ColumnName="ProductionWorkshopNumber" />
+                <ScalarProperty Name="MinCostForAgent" ColumnName="MinCostForAgent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCostHistory">
+            <EntityTypeMapping TypeName="Model.ProductCostHistory">
+              <MappingFragment StoreEntitySet="ProductCostHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="CostValue" ColumnName="CostValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductMaterial">
+            <EntityTypeMapping TypeName="Model.ProductMaterial">
+              <MappingFragment StoreEntitySet="ProductMaterial">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductSale">
+            <EntityTypeMapping TypeName="Model.ProductSale">
+              <MappingFragment StoreEntitySet="ProductSale">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductType">
+            <EntityTypeMapping TypeName="Model.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DefectedPercent" ColumnName="DefectedPercent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects_Cursach">
+            <EntityTypeMapping TypeName="Model.Projects_Cursach">
+              <MappingFragment StoreEntitySet="Projects_Cursach">
+                <ScalarProperty Name="id_project" ColumnName="id_project" />
+                <ScalarProperty Name="project_name" ColumnName="project_name" />
+                <ScalarProperty Name="project_number" ColumnName="project_number" />
+                <ScalarProperty Name="project_status" ColumnName="project_status" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="user_creator_id" ColumnName="user_creator_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Providers_ToyStore">
+            <EntityTypeMapping TypeName="Model.Providers_ToyStore">
+              <MappingFragment StoreEntitySet="Providers_ToyStore">
+                <ScalarProperty Name="id_provider" ColumnName="id_provider" />
+                <ScalarProperty Name="provider_name" ColumnName="provider_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles_ToyStore">
+            <EntityTypeMapping TypeName="Model.Roles_ToyStore">
+              <MappingFragment StoreEntitySet="Roles_ToyStore">
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shop">
+            <EntityTypeMapping TypeName="Model.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specifications_Cursach">
+            <EntityTypeMapping TypeName="Model.Specifications_Cursach">
+              <MappingFragment StoreEntitySet="Specifications_Cursach">
+                <ScalarProperty Name="id_specification" ColumnName="id_specification" />
+                <ScalarProperty Name="specification_name" ColumnName="specification_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_ToyStore">
+            <EntityTypeMapping TypeName="Model.Status_ToyStore">
+              <MappingFragment StoreEntitySet="Status_ToyStore">
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses_Cursach">
+            <EntityTypeMapping TypeName="Model.Statuses_Cursach">
+              <MappingFragment StoreEntitySet="Statuses_Cursach">
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="project_status" ColumnName="project_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier">
+            <EntityTypeMapping TypeName="Model.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="QualityRating" ColumnName="QualityRating" />
+                <ScalarProperty Name="SupplierType" ColumnName="SupplierType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Toys_ToyStore">
+            <EntityTypeMapping TypeName="Model.Toys_ToyStore">
+              <MappingFragment StoreEntitySet="Toys_ToyStore">
+                <ScalarProperty Name="id_toy" ColumnName="id_toy" />
+                <ScalarProperty Name="toy_name" ColumnName="toy_name" />
+                <ScalarProperty Name="toy_id_category" ColumnName="toy_id_category" />
+                <ScalarProperty Name="toy_id_country" ColumnName="toy_id_country" />
+                <ScalarProperty Name="toy_id_manufacturer" ColumnName="toy_id_manufacturer" />
+                <ScalarProperty Name="toy_id_provider" ColumnName="toy_id_provider" />
+                <ScalarProperty Name="toy_wholesalePrice" ColumnName="toy_wholesalePrice" />
+                <ScalarProperty Name="toy_retailPrice" ColumnName="toy_retailPrice" />
+                <ScalarProperty Name="toy_id_ageCategory" ColumnName="toy_id_ageCategory" />
+                <ScalarProperty Name="toy_discription" ColumnName="toy_discription" />
+                <ScalarProperty Name="toy_image" ColumnName="toy_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_role_Cursach">
+            <EntityTypeMapping TypeName="Model.User_role_Cursach">
+              <MappingFragment StoreEntitySet="User_role_Cursach">
+                <ScalarProperty Name="id_user_role" ColumnName="id_user_role" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_class_id" ColumnName="user_class_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users_Cursach">
+            <EntityTypeMapping TypeName="Model.Users_Cursach">
+              <MappingFragment StoreEntitySet="Users_Cursach">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="user_login" ColumnName="user_login" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_id_role" ColumnName="user_id_role" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users_ToyStore">
+            <EntityTypeMapping TypeName="Model.Users_ToyStore">
+              <MappingFragment StoreEntitySet="Users_ToyStore">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="user_login" ColumnName="user_login" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_id_role" ColumnName="user_id_role" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+                <ScalarProperty Name="user_mail" ColumnName="user_mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MaterialSupplier" TypeName="Model.MaterialSupplier" StoreEntitySet="MaterialSupplier">
+            <EndProperty Name="Material">
+              <ScalarProperty Name="ID" ColumnName="MaterialID" />
+            </EndProperty>
+            <EndProperty Name="Supplier">
+              <ScalarProperty Name="ID" ColumnName="SupplierID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
