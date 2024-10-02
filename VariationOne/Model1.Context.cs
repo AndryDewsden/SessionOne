@@ -67,7 +67,7 @@ namespace VariationOne
         public virtual DbSet<Statuses_Cursach> Statuses_Cursach { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Toys_ToyStore> Toys_ToyStore { get; set; }
+        public virtual DbSet<Toys_ToyStore> Toys_ToyStores { get; set; }
         public virtual DbSet<User_role_Cursach> User_role_Cursach { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Users_Cursach> Users_Cursach { get; set; }

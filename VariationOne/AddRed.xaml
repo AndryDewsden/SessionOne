@@ -24,41 +24,23 @@
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
                     <Label Content="Категория:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <ComboBox SelectedIndex="{Binding toy_id_category}" DisplayMemberPath="category_name" x:Name="Combo_names" Height="30" Margin="5" VerticalContentAlignment="Center"/>
+                    <ComboBox SelectedIndex="{Binding AgentTypeID}" DisplayMemberPath="Title" x:Name="Combo_names" Height="30" Margin="5" VerticalContentAlignment="Center"/>
                     <Label Content="Наименование:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
                     <Grid>
-                        <TextBox Text="{Binding toy_name}" x:Name="article" Height="30" Margin="5" LostFocus="article_LostFocus" VerticalContentAlignment="Center"/>
+                        <TextBox Text="{Binding Title}" x:Name="article" Height="30" Margin="5" LostFocus="article_LostFocus" VerticalContentAlignment="Center"/>
                         <TextBox Text="Наименование" x:Name="articlePlaceHolder" Height="30" Margin="5" GotFocus="articlePlaceHolder_GotFocus" VerticalContentAlignment="Center" Foreground="#808080"/>
                     </Grid>
-                    <Label Content="Страна производитель:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <ComboBox SelectedIndex="{Binding toy_id_country}" DisplayMemberPath="country_name" x:Name="Combo_maker" Height="30" Margin="5" VerticalContentAlignment="Center"/>
-                    <Label Content="Производитель:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <ComboBox SelectedIndex="{Binding toy_id_manufacturer}" DisplayMemberPath="manufacturer_name" x:Name="Combo_giver" Height="30" Margin="5" VerticalContentAlignment="Center"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <Label Content="Оптовая цена:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
                     <Grid>
-                        <TextBox Text="{Binding toy_wholesalePrice}" x:Name="prize" Height="30" Margin="5" LostFocus="prize_LostFocus" VerticalContentAlignment="Center"/>
+                        <TextBox Text="{Binding Priority}" x:Name="prize" Height="30" Margin="5" LostFocus="prize_LostFocus" VerticalContentAlignment="Center"/>
                         <TextBox Text="Оптовая цена" x:Name="prizePlaceHolder" Height="30" Margin="5" GotFocus="prizePlaceHolder_GotFocus" VerticalContentAlignment="Center" Foreground="#808080"/>
-                    </Grid>
-                    <Label Content="Розничная цена:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <Grid>
-                        <TextBox Text="{Binding toy_retailPrice}" x:Name="maxskid" Height="30" Margin="5" LostFocus="maxskid_LostFocus" VerticalContentAlignment="Center"/>
-                        <TextBox Text="Розничная цена" x:Name="maxskidPlaceHolder" Height="30" Margin="5" GotFocus="maxskidPlaceHolder_GotFocus" VerticalContentAlignment="Center" Foreground="#808080"/>
-                    </Grid>
-                    <Label Content="Описание:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <Grid>
-                        <TextBox Text="{Binding toy_discription}" x:Name="kol" Height="30" Margin="5" LostFocus="kol_LostFocus" VerticalContentAlignment="Center"/>
-                        <TextBox Text="Описание" x:Name="kolPlaceHolder" Height="30" Margin="5" GotFocus="kolPlaceHolder_GotFocus" VerticalContentAlignment="Center" Foreground="#808080"/>
                     </Grid>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
-                    <Label Content="Поставщик:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <ComboBox SelectedIndex="{Binding toy_id_provider}" DisplayMemberPath="provider_name" x:Name="Combo_ed" Height="30" Margin="5" VerticalContentAlignment="Center"/>
-                    <Label Content="Возрастная категория:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
-                    <ComboBox SelectedIndex="{Binding toy_id_ageCategory}" DisplayMemberPath="ageCategory_name" x:Name="Combo_cat" Height="30" Margin="5" VerticalContentAlignment="Center"/>
                     <Label Content="Изображение товара:" Height="30" Margin="5" VerticalContentAlignment="Center" FontWeight="Bold"/>
                     <Grid>
                         <TextBox Text="{Binding toy_image}" x:Name="image" Height="30" Margin="5" LostFocus="image_LostFocus" VerticalContentAlignment="Center"/>

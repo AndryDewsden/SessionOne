@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace VariationOne
 {
@@ -23,8 +12,6 @@ namespace VariationOne
         {
             InitializeComponent();
             use = user;
-
-            userDisplay.Content = user.user_name;
 
             switch (user.user_id_role)
             {
@@ -69,22 +56,21 @@ namespace VariationOne
                     break;
             }
 
-            //сортировшик
-            Sorter.ItemsSource = new Sort[]
+            Sorter.Items.Add("Все типы");
+            
+            for (int i = 0; i < AppConnect.entities.AgentType.ToList().Count; i++)
             {
-                new Sort { Name_sorter = "нет" },
-                new Sort { Name_sorter = "к максимальной" },
-                new Sort { Name_sorter = "к минимальной" }
-            };
+                Sorter.Items.Add(AppConnect.entities.AgentType.ToList()[i]);
+            }
             Sorter.SelectedIndex = 0;
 
             //фильтр
             Filter.ItemsSource = new Filt[]
             {
-                new Filt { Name_filter = "нет" },
-                new Filt { Name_filter = "до 1000" },
-                new Filt { Name_filter = "от 1000 до 2000" },
-                new Filt { Name_filter = "от 2000" }
+                new Filt { Name_filter = "Фильтрация" },
+                new Filt { Name_filter = "Наименование" },
+                new Filt { Name_filter = "Размер скидки" },
+                new Filt { Name_filter = "Приоритет агента" }
             };
             Filter.SelectedIndex = 0;
 
@@ -106,14 +92,14 @@ namespace VariationOne
         }
 
         //составление списка
-        Toys_ToyStore[] FindProduct()
+        Agent[] FindProduct()
         {
-            var products = AppConnect.entities.Toys_ToyStore.ToList();
+            var products = AppConnect.entities.Agent.ToList();
             var producttall = products;
 
             if (Searcher.Text != null)
             {
-                products = products.Where(x => x.toy_name.ToLower().Contains(Searcher.Text.ToLower())).ToList();
+                products = products.Where(x => x.Title.ToLower().Contains(Searcher.Text.ToLower()) || x.Phone.ToLower().Contains(Searcher.Text.ToLower()) || x.Email.ToLower().Contains(Searcher.Text.ToLower())).ToList();
             }
 
             if (Filter.SelectedIndex > 0)
@@ -121,28 +107,20 @@ namespace VariationOne
                 switch (Filter.SelectedIndex)
                 {
                     case 1:
-                        products = products.Where(x => x.toy_retailPrice > 0 && x.toy_retailPrice < 1000).ToList();
+                        products = products.OrderBy(x => x.Title).ToList();
                         break;
                     case 2:
-                        products = products.Where(x => x.toy_retailPrice >= 1000 && x.toy_retailPrice < 2000).ToList();
+                        products = products.OrderBy(x => x.INN).ToList();
                         break;
                     case 3:
-                        products = products.Where(x => x.toy_retailPrice >= 2000).ToList();
+                        products = products.OrderBy(x => x.Priority).ToList();
                         break;
                 }
             }
 
             if (Sorter.SelectedIndex > 0)
             {
-                switch (Sorter.SelectedIndex)
-                {
-                    case 1:
-                        products = products.OrderBy(x => x.toy_wholesalePrice).ToList();
-                        break;
-                    case 2:
-                        products = products.OrderByDescending(x => x.toy_wholesalePrice).ToList();
-                        break;
-                }
+                products = products.Where(x => x.AgentTypeID == Sorter.SelectedIndex).ToList();
             }
 
             if (products.Count > 0)
@@ -205,26 +183,8 @@ namespace VariationOne
             if (Visibility == Visibility.Visible)
             {
                 AppConnect.entities.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                listProducts.ItemsSource = AppConnect.entities.Toys_ToyStore.ToList();
+                listProducts.ItemsSource = AppConnect.entities.Agent.ToList();
             }
-        }
-
-        //перевод товара в корзину через контекстное меню
-        private void Buy_Click(object sender, RoutedEventArgs e)
-        {
-            AddToCart();
-        }
-
-        //перейти в корзину
-        private void goCart_Click(object sender, RoutedEventArgs e)
-        {
-            AppFrame.frameMain.Navigate(new Cart(use));
-        }
-
-        //перейти в аккаунт
-        private void userDisplay_Click(object sender, RoutedEventArgs e)
-        {
-            AppFrame.frameMain.Navigate(new User(use));
         }
 
         //добавить товар через админа
@@ -236,7 +196,7 @@ namespace VariationOne
         //редактировать товар через админа
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((Toys_ToyStore)listProducts.SelectedItem != null)
+            if ((Agent)listProducts.SelectedItem != null)
             {
                 editFun();
             }
@@ -245,7 +205,7 @@ namespace VariationOne
         //удаление товара через админа
         private void delButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((Toys_ToyStore)listProducts.SelectedItem != null)
+            if ((Agent)listProducts.SelectedItem != null)
             {
                 delFun();
             }
@@ -260,21 +220,21 @@ namespace VariationOne
         //Переход на редактирование товара через контекстное меню через админа
         private void editFun()
         {
-            Toys_ToyStore red = (Toys_ToyStore)listProducts.SelectedItem;
+            Agent red = (Agent)listProducts.SelectedItem;
             AppFrame.frameMain.Navigate(new AddRed(red, use));
         }
 
         //Удаление товара через контекстное меню через админа
         private void delFun()
         {
-            var del = (Toys_ToyStore)listProducts.SelectedItem;
-            var res = MessageBox.Show($"Вы действительно хотите удалить этот товар?\n Будет удалён:\nНаименование: {del.toy_name} \nАртикль: {del.toy_discription} \n", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            var del = (Agent)listProducts.SelectedItem;
+            var res = MessageBox.Show($"Вы действительно хотите удалить этот товар?\n Будет удалён:\nНаименование: \nАртикль: \n", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
             if (res == MessageBoxResult.Yes)
             {
                 try
                 {
-                    AppConnect.entities.Toys_ToyStore.Remove(del);
+                    AppConnect.entities.Agent.Remove(del);
                     AppConnect.entities.SaveChanges();
                     listProducts.ItemsSource = FindProduct();
                     //MessageBox.Show("Данные успешно удалены", "Тестирование", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -285,126 +245,6 @@ namespace VariationOne
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-        }
-
-        //кнопка на товаре
-        private void Add_toCart_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show($"", "Тестирование", MessageBoxButton.OK);
-            AddToCart();
-        }
-
-        //Добавление товара в заказ
-        private void AddToCart()
-        {
-            string numOrder;
-
-            Directories_ToyStore userList = AppConnect.entities.Directories_ToyStore.FirstOrDefault(x => x.directory_id_user == use.id_user && x.directory_status != 2);
-
-            //присваивание товара к номеру заказа
-            if (userList == null)
-            {
-                //генератор номера заказа                
-                Random r = new Random();
-                numOrder = "";
-
-                while (AppConnect.entities.Directories_ToyStore.Where(x => x.directory_order_number == numOrder).Count() > 0 || numOrder == "")
-                {
-                    numOrder = "R0";
-                    for (int i = 0; i < 10; i++)
-                    {
-                        int t = r.Next(0, 2);
-                        switch (t)
-                        {
-                            case 0:
-                                numOrder += Convert.ToChar(r.Next(65, 90));
-                                break;
-                            case 1:
-                                numOrder += r.Next(0, 10).ToString();
-                                break;
-                        }
-                    }
-                    MessageBox.Show("Номер создан", "", MessageBoxButton.OK);
-
-                    if (AppConnect.entities.Directories_ToyStore.Where(x => x.directory_order_number == numOrder).Count() > 0)
-                    {
-                        MessageBox.Show("Такой номер уже есть.", "lol", MessageBoxButton.OK);
-                    }
-                }
-
-                try
-                {
-                    Directories_ToyStore userDir = new Directories_ToyStore()
-                    {
-                        directory_id_user = use.id_user,
-                        directory_order_number = numOrder,
-                        directory_status = 1
-                    };
-                    AppConnect.entities.Directories_ToyStore.Add(userDir);
-                    AppConnect.entities.SaveChanges();
-                    //MessageBox.Show($"Новый номер сгенернирован: {numOrder}", "Тестирование", MessageBoxButton.OK);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка при внедрении данных на сервер!\n{ex.Message}", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else
-            {
-                //MessageBox.Show("Товару успешно присвоен номер", "Тестирование", MessageBoxButton.OK);
-                numOrder = userList.directory_order_number.ToString();
-            }
-
-            //Добавление товара в корзину
-            var ord = (Toys_ToyStore)listProducts.SelectedItem;
-
-            //ищем наш заказ
-            var num = AppConnect.entities.Directories_ToyStore.FirstOrDefault(x => x.directory_order_number == numOrder && x.directory_status != 2);
-            //ищем наш товар
-            var goodOrder = AppConnect.entities.Orders_ToyStore.FirstOrDefault(x => x.order_id_toy == ord.id_toy && x.order_id_directory == num.id_directory);
-
-            //если товар впервые добавлен в корзину
-            if (ord != null && goodOrder == null)
-            {
-                try
-                {
-                    Orders_ToyStore userOrder = new Orders_ToyStore()
-                    {
-                        order_id_directory = num.id_directory,
-                        order_id_toy = ord.id_toy,
-                        order_quantity = 1
-                    };
-                    AppConnect.entities.Orders_ToyStore.Add(userOrder);
-                    AppConnect.entities.SaveChanges();
-                    //MessageBox.Show("Ваш товар успешно добавлен в корзину.", "Тестовое уведомление", MessageBoxButton.OK);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ошибка при внедрении данных товара заказа!\n{ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-
-            //если товар уже есть в корзине 
-            else
-            {
-                try
-                {
-                    goodOrder.order_quantity = goodOrder.order_quantity + 1;
-                    AppConnect.entities.SaveChanges();
-                    //MessageBox.Show("Данные успешно редактированы", "Тестирование", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                //MessageBox.Show("Этот товар уже есть в вашей корзине", "Тестовое уведомление", MessageBoxButton.OK);
-            }
-        }
-
-        private void Add_toCart_DpiChanged(object sender, DpiChangedEventArgs e)
-        {
-
         }
 
         private void Searcher_LostFocus(object sender, RoutedEventArgs e)

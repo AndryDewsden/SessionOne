@@ -21,9 +21,6 @@
 
         <Grid Grid.Row="2" Margin="0,5">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="userDisplay" Content="Пользователь" Click="userDisplay_Click" Width="120" Height="30" Margin="5,0,5,0" Background="#00CED1" Foreground="#E0FFFF"/>
-                <Button x:Name="goCart" Content="Корзина" Click="goCart_Click" Width="100" Height="30" Margin="5,0,5,0" Background="#00CED1" Foreground="#E0FFFF"/>
-                <Button x:Name="addCart" Content="Добавить в корзину" Width="120" Height="30" Margin="5,0,5,0" Background="#00CED1" Foreground="#E0FFFF"/>
                 <Button x:Name="addButton" Content="Добавить товар" Width="120" Height="30" Margin="5,0,5,0" Click="addButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
                 <Button x:Name="editButton" Content="Редактировать товар" Width="120" Height="30" Margin="5,0,5,0" Click="editButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
                 <Button x:Name="delButton" Content="Удалить товар" Width="120" Height="30" Margin="5,0,5,0" Click="delButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
@@ -40,7 +37,7 @@
                 <Label Content="Фильтр" VerticalContentAlignment="Center" Margin="5,0,0,0" Width="60" HorizontalContentAlignment="Center"/>
                 <ComboBox x:Name="Filter" VerticalContentAlignment="Center" Margin="5,0,0,0" Width="120" Height="30" SelectedIndex="0" SelectionChanged="Filter_SelectionChanged"/>
                 <Label Content="Сортировшик" VerticalContentAlignment="Center" Margin="5,0,0,0" Width="80" HorizontalContentAlignment="Center"/>
-                <ComboBox x:Name="Sorter" VerticalContentAlignment="Center" Margin="5,0,0,0" Width="120" Height="30" SelectedIndex="0" SelectionChanged="Sorter_SelectionChanged"/>
+                <ComboBox x:Name="Sorter" VerticalContentAlignment="Center" Margin="5,0,0,0" Width="120" Height="30" SelectedIndex="0" SelectionChanged="Sorter_SelectionChanged" DisplayMemberPath="Title"/>
                 <Label x:Name="Counter" Margin="5,0,0,0" Width="200" Height="30" HorizontalContentAlignment="Center"/>
             </StackPanel>
         </Grid>
@@ -66,47 +63,25 @@
 
                             <StackPanel Grid.Column="1" Width="auto" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
                                 <TextBlock>
-                                <Run Text="Название: " FontWeight="Bold"/>
-                                <Run Text="{Binding toy_name}"/>
+                                    <Run Text="{Binding AgentType.Title}"/>
+                                    <Run Text=" | "/>
+                                    <Run Text="{Binding Title}"/>
                                 </TextBlock>
                                 <TextBlock>
-                                <Run Text="Производитель: " FontWeight="Bold"/>
-                                <Run Text="{Binding Manufacturers_ToyStore.manufacturer_name}"/>
+                                    <Run Text="10 продаж за год"/>
                                 </TextBlock>
                                 <TextBlock>
-                                <Run Text="Поставшик: " FontWeight="Bold"/>
-                                <Run Text="{Binding Providers_ToyStore.provider_name}"/>
+                                    <Run Text="{Binding Phone}"/>
                                 </TextBlock>
                                 <TextBlock>
-                                <Run Text="Оптовая цена: " FontWeight="Bold"/>
-                                <Run Text="{Binding toy_wholesalePrice}"/>
-                                <Run Text=" руб."/>
-                                </TextBlock>
-                                <TextBlock>
-                                <Run Text="Розничная цена: " FontWeight="Bold"/>
-                                <Run Text="{Binding toy_retailPrice}"/>
-                                <Run Text=" руб."/>
-                                </TextBlock>
-                            </StackPanel>
-
-                            <StackPanel Grid.Column="2" Width="auto" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
-                                <TextBlock>
-                                <Run Text="Возрастная категория: " FontWeight="Bold"/>
-                                <Run Text="{Binding AgeCategories_ToyStore.ageCategory_name}"/>
-                                </TextBlock>
-                                <TextBlock>
-                                <Run Text="Категория: " FontWeight="Bold"/>
-                                <Run Text="{Binding Categories_ToyStore.category_name}"/>
-                                </TextBlock>
-                                <TextBlock TextWrapping="Wrap">
-                                <Run Text="Описание: " FontWeight="Bold"/>
-                                <Run Text="{Binding toy_discription}"/>
+                                    <Run Text="Приоритетность: "/>
+                                    <Run Text="{Binding Priority}"/>
                                 </TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="3" Width="auto" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <TextBlock>
-                                <Button x:Name="Add_toCart" Click="Add_toCart_Click"><Image Source="/images/tocart.png" Width="50" Height="50"/></Button>
+                                    <Run Text="10%"/>
                                 </TextBlock>
                             </StackPanel>
                         </Grid>
@@ -115,8 +90,7 @@
             </ListView.ItemTemplate>
             <ListView.ContextMenu>
                 <ContextMenu x:Name="ConMenu">
-                    <MenuItem x:Name="buyConMenu" Header="Добавить в корзину" Click="Buy_Click"/>
-                    <MenuItem x:Name="addConMenu" Header="Добавить товар" Click="Add_Click"/>
+                    <MenuItem x:Name="addConMenu" Header="Добавить агента" Click="Add_Click"/>
                     <MenuItem x:Name="editConMenu" Header="Редактировать товар" Click="Edit_Click"/>
                     <MenuItem x:Name="delConMenu" Header="Удалить товар" Click="Delete_Click"/>
                 </ContextMenu>
