@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:VariationOne"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Show">
+      Title="Список агентов">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,15 +15,16 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="450"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="2" Margin="0,5">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="addButton" Content="Добавить товар" Width="120" Height="30" Margin="5,0,5,0" Click="addButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
-                <Button x:Name="editButton" Content="Редактировать товар" Width="120" Height="30" Margin="5,0,5,0" Click="editButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
-                <Button x:Name="delButton" Content="Удалить товар" Width="120" Height="30" Margin="5,0,5,0" Click="delButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
+                <Button x:Name="addButton" Content="Добавить агента" Width="200" Height="30" Margin="5,0,5,0" Click="addButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
+                <Button x:Name="editButton" Content="Редактировать агента" Width="200" Height="30" Margin="5,0,5,0" Click="editButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
+                <Button x:Name="delButton" Content="Удалить агента" Width="200" Height="30" Margin="5,0,5,0" Click="delButton_Click" Background="#00CED1" Foreground="#E0FFFF"/>
             </StackPanel>
         </Grid>
 
@@ -42,7 +43,7 @@
             </StackPanel>
         </Grid>
 
-        <ListView x:Name="listProducts" Grid.Row="1" ScrollViewer.CanContentScroll="False" Width="960" Background="#AFEEEE	">
+        <ListView x:Name="listProducts" ItemsSource="{Binding CurrentPageAgents}" Grid.Row="1" ScrollViewer.CanContentScroll="False" Width="960" Background="#AFEEEE	">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="10" Background="#ffffff">
@@ -91,10 +92,27 @@
             <ListView.ContextMenu>
                 <ContextMenu x:Name="ConMenu">
                     <MenuItem x:Name="addConMenu" Header="Добавить агента" Click="Add_Click"/>
-                    <MenuItem x:Name="editConMenu" Header="Редактировать товар" Click="Edit_Click"/>
-                    <MenuItem x:Name="delConMenu" Header="Удалить товар" Click="Delete_Click"/>
+                    <MenuItem x:Name="editConMenu" Header="Редактировать агента" Click="Edit_Click"/>
+                    <MenuItem x:Name="delConMenu" Header="Удалить агента" Click="Delete_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
+
+        <Grid Grid.Row="3" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="prevButton" Content="Предыдушая" Click="PrevButton_Click" Width="200" Height="30" Grid.Column="0"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Страница "/>
+                <ComboBox x:Name="pageComboBox" ItemsSource="{Binding PageNumbers}" SelectedItem="{Binding SelectedPage}" Height="30" Width="50"/>
+                <TextBlock Text=" из "/>
+                <TextBlock Text="{Binding TotalPages}"/>
+            </StackPanel>
+            <Button x:Name="nextButton" Content="Следушая" Click="NextButton_Click" Width="200" Height="30" Grid.Column="2"/>
+        </Grid>
     </Grid>
 </Page>

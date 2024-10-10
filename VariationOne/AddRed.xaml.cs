@@ -35,19 +35,28 @@ namespace VariationOne
             if (aget != null)
             {
                 _curAgent = aget;
-                Title = "Редактирование";
+                Title = "Редактирование агента";
                 Red.IsEnabled = true;
 
-                check(article, articlePlaceHolder);
-                check(prize, prizePlaceHolder);
-                check(image, imagePlaceHolder);
+                check(nameBox, nameBoxPlaceHolder);
+                check(priorityBox, priorityBoxPlaceHolder);
+                check(logoBox, logoBoxPlaceHolder);
+                check(addressBox, addressBoxPlaceHolder);
+                check(innBox, innBoxPlaceHolder);
+                check(kppBox, kppBoxPlaceHolder);
+                check(directorNameBox, directorNameBoxPlaceHolder);
+                check(phoneBox, phoneBoxPlaceHolder);
+                check(emailBox, emailBoxPlaceHolder);
 
             }
             else
             {
-                Title = "Добавление";
+                Title = "Добавление агента";
                 Red.IsEnabled = false;
                 Red.Visibility = Visibility.Collapsed;
+
+                check(priorityBox, priorityBoxPlaceHolder);
+
             }
 
             DataContext = _curAgent;
@@ -68,7 +77,7 @@ namespace VariationOne
         //добавить товар
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if (Combo_names.SelectedIndex != 0 && article.Text != "")
+            if (Combo_names.SelectedIndex != 0 && nameBox.Text != "" && priorityBox.Text != "" && addressBox.Text != "" && innBox.Text != "" && kppBox.Text != "" && directorNameBox.Text != "" && phoneBox.Text != "" && emailBox.Text != "" && logoBox.Text != "")
             {
                 var res = MessageBox.Show("Вы действительно хотите добавить этот товар?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
@@ -123,42 +132,113 @@ namespace VariationOne
             }
         }
 
-        private void article_LostFocus(object sender, RoutedEventArgs e)
+        private void nameBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            check(article, articlePlaceHolder);
-            placeHolder(article, articlePlaceHolder);
+            check(nameBox, nameBoxPlaceHolder);
+            placeHolder(nameBox, nameBoxPlaceHolder);
         }
 
-        private void articlePlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        private void nameBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
         {
-            Original(article, articlePlaceHolder);
-            article.Focus();
+            Original(nameBox, nameBoxPlaceHolder);
+            nameBox.Focus();
         }
 
-        private void prize_LostFocus(object sender, RoutedEventArgs e)
+        private void priorityBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            check(prize, prizePlaceHolder);
-            placeHolder(prize, prizePlaceHolder);
+            check(priorityBox, priorityBoxPlaceHolder);
+            placeHolder(priorityBox, priorityBoxPlaceHolder);
         }
 
-        private void prizePlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        private void priorityBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
         {
-            Original(prize, prizePlaceHolder);
-            prize.Focus();
+            Original(priorityBox, priorityBoxPlaceHolder);
+            priorityBox.Focus();
         }
 
-        private void image_LostFocus(object sender, RoutedEventArgs e)
+        private void logoBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            check(image, imagePlaceHolder);
-            placeHolder(image, imagePlaceHolder);
+            check(logoBox, logoBoxPlaceHolder);
+            placeHolder(logoBox, logoBoxPlaceHolder);
         }
 
-        private void imagePlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        private void logoBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
         {
-            Original(image, imagePlaceHolder);
-            image.Focus();
+            Original(logoBox, logoBoxPlaceHolder);
+            logoBox.Focus();
         }
 
+        private void addressBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            check(addressBox, addressBoxPlaceHolder);
+            placeHolder(addressBox, addressBoxPlaceHolder);
+        }
+
+        private void addressBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Original(addressBox, addressBoxPlaceHolder);
+            addressBox.Focus();
+        }
+
+        private void innBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            check(innBox, innBoxPlaceHolder);
+            placeHolder(innBox, innBoxPlaceHolder);
+        }
+
+        private void innBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Original(innBox, innBoxPlaceHolder);
+            innBox.Focus();
+        }
+
+        private void kppBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            check(kppBox, kppBoxPlaceHolder);
+            placeHolder(kppBox, kppBoxPlaceHolder);
+        }
+
+        private void kppBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Original(kppBox, kppBoxPlaceHolder);
+            kppBox.Focus();
+        }
+
+        private void directorNameBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            check(directorNameBox, directorNameBoxPlaceHolder);
+            placeHolder(directorNameBox, directorNameBoxPlaceHolder);
+        }
+
+        private void directorNameBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Original(directorNameBox, directorNameBoxPlaceHolder);
+            directorNameBox.Focus();
+        }
+
+        private void phoneBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            check(phoneBox, phoneBoxPlaceHolder);
+            placeHolder(phoneBox, phoneBoxPlaceHolder);
+        }
+
+        private void phoneBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Original(phoneBox, phoneBoxPlaceHolder);
+            phoneBox.Focus();
+        }
+
+        private void emailBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            check(emailBox, emailBoxPlaceHolder);
+            placeHolder(emailBox, emailBoxPlaceHolder);
+        }
+
+        private void emailBoxPlaceHolder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Original(emailBox, emailBoxPlaceHolder);
+            emailBox.Focus();
+        }
         private void Original(TextBox org, TextBox place)
         {
             place.Visibility = Visibility.Collapsed;

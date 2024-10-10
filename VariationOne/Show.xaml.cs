@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,10 @@ namespace VariationOne
         {
             InitializeComponent();
             use = user;
+
+            CurrentPageAgents = new ObservableCollection<Agent>();
+            PageNumbers = new ObservableCollection<int>();
+            LoadData();
 
             switch (user.user_id_role)
             {
@@ -75,7 +80,8 @@ namespace VariationOne
             Filter.SelectedIndex = 0;
 
             //список
-            listProducts.ItemsSource = FindProduct();
+            listProducts.ItemsSource = FindProduct(pageNumber);
+            //var currentPageAgents = FindProduct(pageNumber);
             this.use = use;
         }
 
@@ -91,11 +97,59 @@ namespace VariationOne
             public override string ToString() => $"{Name_filter}";
         }
 
+        private int _pageNumber = 1;
+        private int _totalPages;
+
+        public ObservableCollection<Agent> CurrentPageAgents { get; set; }
+        public ObservableCollection<int> PageNumbers { get; set; }
+        public int SelectedPage { get; set; }
+        private void LoadData()
+        {
+            var products = AppConnect.entities.Agent.ToList();
+            _totalPages = (int)Math.Ceiling(products.Count / (double)10);
+
+            for (int i = 1; i <= _totalPages; i++)
+            {
+                PageNumbers.Add(i);
+            }
+
+            SelectedPage = _pageNumber;
+            CurrentPageAgents.Clear();
+            //CurrentPageAgents.AddRange(FindProduct(_pageNumber));
+
+            listProducts.Items.Clear();
+            //listProducts.ItemsSource = CurrentPageAgents.Add(FindProduct(_pageNumber));
+            listProducts.ItemsSource = FindProduct(_pageNumber);
+        }
+
+        private void PrevButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_pageNumber > 1)
+            {
+                _pageNumber--;
+                LoadData();
+            }
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_pageNumber < _totalPages)
+            {
+                _pageNumber++;
+                LoadData();
+            }
+        }
+
+        int pageSize = 10;
+        int pageNumber = 1;
+
         //составление списка
-        Agent[] FindProduct()
+        Agent[] FindProduct(int pageNumber)
         {
             var products = AppConnect.entities.Agent.ToList();
             var producttall = products;
+
+            var totalPages = (int)Math.Ceiling(products.Count / (double)pageSize); //
 
             if (Searcher.Text != null)
             {
@@ -131,8 +185,15 @@ namespace VariationOne
             {
                 Counter.Content = "Ничего не найдено.";
             }
+            // Calculate the start and end indices for the current page
+            var startIndex = (pageNumber - 1) * pageSize;
+            var endIndex = startIndex + pageSize;
 
-            return products.ToArray();
+            // Return the agents for the current page
+            var currentPageAgents = products.Skip(startIndex).Take(pageSize).ToArray();
+
+            return currentPageAgents.ToArray();
+            //return products.ToArray();
         }
 
         //кнопка возвращения назад
@@ -144,19 +205,22 @@ namespace VariationOne
         //обновление страницы
         private void Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listProducts.ItemsSource = FindProduct();
+            listProducts.ItemsSource = FindProduct(pageNumber);
+            //var currentPageAgents = FindProduct(pageNumber);
         }
 
         //обновление страницы
         private void Sorter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listProducts.ItemsSource = FindProduct();
+            listProducts.ItemsSource = FindProduct(pageNumber);
+            //var currentPageAgents = FindProduct(pageNumber);
         }
 
         //обновление страницы
         private void Searcher_TextChanged(object sender, TextChangedEventArgs e)
         {
-            listProducts.ItemsSource = FindProduct();
+            listProducts.ItemsSource = FindProduct(pageNumber);
+            //var currentPageAgents = FindProduct(pageNumber);
         }
 
         //добавление товара через кнопку
@@ -236,7 +300,8 @@ namespace VariationOne
                 {
                     AppConnect.entities.Agent.Remove(del);
                     AppConnect.entities.SaveChanges();
-                    listProducts.ItemsSource = FindProduct();
+                    listProducts.ItemsSource = FindProduct(pageNumber);
+                    //var currentPageAgents = FindProduct(pageNumber);
                     //MessageBox.Show("Данные успешно удалены", "Тестирование", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
